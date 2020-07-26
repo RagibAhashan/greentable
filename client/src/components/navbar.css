@@ -77,27 +77,44 @@
     text-decoration: none;
 }
 
+#sign-in:hover {
+    border-radius: 50px;
+    background-color: rgba(3, 211, 13, 0.7);
+    transition: all 0.5s ease 0s;
+}
+
 #sign-in {
     padding: 9px 25px;
-    background-color: rgba(0, 136, 169, 1);
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(4, 195, 13);
+    font-weight: 500;
+    color: #edf0f1;
     border: none;
+    text-decoration: none;
+    font-size: 21px;
     border-radius: 5px;
+    margin-left: 20px;
     cursor: pointer;
     transition: all 0.5s ease 0s;
 }
 
-#sign-in:hover {
-    border-radius: 50px;
-    background-color: rgb(70, 162, 185);
-    transition: all 0.1s ease 0s;
-}
-
-#sign-in {
+#reg-partner {
+    padding: 9px 25px;
     font-family: 'Montserrat', sans-serif;
+    background-color: rgb(133, 108, 0);
     font-weight: 500;
-    font-size: 16px;
     color: #edf0f1;
+    border: none;
     text-decoration: none;
     font-size: 21px;
-    margin-left: 90px;
+    border-radius: 5px;
+    margin-left: 40px;
+    cursor: pointer;
+    transition: all 0.5s ease 0s;
+}
+
+#reg-partner:hover {
+    border-radius: 50px;
+    background-color: rgb(255, 187, 0);
+    transition: all 0.5s ease 0s;
 }

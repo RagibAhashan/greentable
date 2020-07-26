@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Wave from '../assets/img/wave.png'
 import './loginPage.css'
-import { Form, Row } from 'react-bootstrap'
-
+import { Form, Row, Col } from 'react-bootstrap'
+import { useHistory } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -17,7 +17,18 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="/">
+        GreenTable
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -41,13 +52,18 @@ const useStyles = makeStyles((theme) => ({
 
 const LoginPage = () => {
 
+    const history = useHistory();
     const classes = useStyles();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+
     return (
-        <div>
-        <Container component="main" maxWidth="xs">
+        <div >
+            
+
+            
+        <Container id='loginPage' component="main" maxWidth="sm">
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
@@ -91,7 +107,7 @@ const LoginPage = () => {
             variant="contained"
             color="primary"
             // className={classes.submit}
-            onClick={()=>{console.log(email, password)}}
+            onClick={()=>{console.log(email, password); history.push("/");}}
           >
             Sign In
           </Button>
@@ -123,7 +139,17 @@ const LoginPage = () => {
       </div>
 
     </Container>
-    <footer></footer>
+
+    <footer className="footer"> 
+      <div id='copyright'>
+        {'Copyright © '}
+        <Link color="inherit" href="/">
+          GreenTable
+        </Link>{' '}
+        {new Date().getFullYear()}
+        {'.'}
+      </div>
+    </footer>
     </div>
     ) 
 }
