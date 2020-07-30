@@ -77,6 +77,13 @@
   border-color: white;
   width: 200px;
   height: 60px;
+  transition: all 0.5s ease 0s;
+  transform: translateY(0%);
+}
+
+#order-now:hover {
+  transition: all 0.5s ease 0s;
+  transform: translateY(-5%);
 }
 
 #container {
@@ -125,10 +132,18 @@
 }
 
 #notified-btn {
-    width: 200px;
+    width: 500px;
     height: 70px;
-    border-radius: 50px;
+    border-radius: 10px;
+    border-color:white;
     font-size: 25px;
     margin-top: 300px;
     background-color: rgb(0, 0, 0);
+    transition: all 0.5s ease 0s;
+    transform: translateY(0%);
+}
+
+#notified-btn:hover {
+  transition: all 0.5s ease 0s;
+  transform: translateY(-5%);
 }

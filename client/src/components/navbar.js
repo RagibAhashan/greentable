@@ -8,11 +8,11 @@ const NavBar = () => {
             <img class='logo' src={logo} alt='logo'/ >
             <nav>
                 <ul class='nav__links'>
-                    <li class='tab'><a href='#' class='tab_link'> For Restaurants </a></li>
+                    <li class='tab'><a href='/register-restaurant' class='tab_link'> For Restaurants </a></li>
                 </ul>
             </nav>
             <a href="/register-partner">
-                <button id='reg-partner'> Become a partner </button>
+                <button id='reg-partner'> Sign up to deliver </button>
             </a>
             <a href="/login">
                 <button id='sign-in'> Sign in </button>
