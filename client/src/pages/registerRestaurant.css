@@ -4,19 +4,41 @@
     font-family: 'Roboto', sans-serif;
 }
 
-.centered {
-    position: absolute; /* or absolute */
-    top: 8%;
-    left: 35%;
+.header-msg {
+    position: absolute; 
+    top: 50px;
+    left: 29%;
+    width: 1000px;
+    height: 230px;
     padding-left: 50px;
-    padding-top: 50px;
+    padding-top: 30px;
     padding-bottom: 50px;
     padding-right: 50px;
+    border-radius: 10px;
+    border-color: #15c8ff;
+    border-style: solid;
+    background-color: rgb(232, 252, 255);
+    animation: 0.8s ease-out 0.1s 1 slideInFromRight;
+    transition: all 0.5s ease 0s;
+}
+
+.centered {
+    position: absolute; 
+    top: 350px;
+    left: 29%;
+    padding-left:  173px;
+    padding-right: 173px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 100px;
     border-radius: 10px;
     border-color: #ff6aa2;
     border-style: solid;
     background-color: rgb(250, 249, 249);
+    animation: 0.8s ease-out 0.1s 1 slideInFromLeft;
+    transition: all 0.5s ease 0s;
 }
+
 
 input {
     border-radius: 4px;
@@ -62,3 +84,29 @@ h2 {
     background-color: #ff6aa2;
 }
 
+@keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-10%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+      transform: translateX(10%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+}
+
+@keyframes fadeInAnimation { 
+    0% { 
+        opacity: 0; 
+    } 
+    100% { 
+        opacity: 1; 
+     } 
+}

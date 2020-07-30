@@ -50,15 +50,20 @@ const RegisterRestaurant = () => {
 
 
   return (
-      <div class='centered-header-text'>
-          <h2> You make the food, </h2>
-          <h2> We handle the rest.</h2>
-          <h3>Increase your customer retention while providing a personalized subscription service.
-              Our trained staff, delivery expertise and logistics will drive large orders with less
-              worry of when you’ll get your next order.</h3>
+      <div>
+          <div className='header-msg'>
 
-      {/* <RestaurantForm /> */}
-    <form onSubmit={handleSubmit(onSubmit)} class='centered'>
+            <h2 style={{textAlign:"center"}}> 
+            <span style={{color:'rgb(248, 55, 255)'}}>You make</span> the food,
+            <span style={{color:'#15c8ff'}}>{' We handle'}</span> the rest. </h2>
+
+            
+            <h3>Increase your customer retention while providing a personalized subscription service.
+                Our trained staff, delivery expertise and logistics will drive large orders with less
+                worry of when you’ll get your next order.</h3>
+          </div>
+
+    <form onSubmit={handleSubmit(onSubmit)} className='centered'>
             <div>
             <h2> RESTAURANT DETAILS </h2>
             <hr/>
@@ -147,7 +152,7 @@ const RegisterRestaurant = () => {
 
             <Button id='register-button'
                 disabled={formIncomplete}
-                onClick={()=>{console.log(restaurantName && restaurantWebsiteLink && restaurantAddress && restaurantCity && firstName && lastName && email && phoneNumber); history.push("/");}}
+                onClick={()=>{history.push("/");}}
             > 
                 Register 
             </Button>
@@ -156,6 +161,9 @@ const RegisterRestaurant = () => {
           
       </div>
     </form>
+
+    
+    
     </div>
   );
 }
