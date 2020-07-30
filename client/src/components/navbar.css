@@ -78,15 +78,14 @@
 }
 
 #sign-in:hover {
-    border-radius: 50px;
-    background-color: rgba(3, 211, 13, 0.7);
-    transition: all 0.5s ease 0s;
+    background-color: rgb(109, 0, 0);
+    transition: all 0.2s ease 0s;
 }
 
 #sign-in {
     padding: 9px 25px;
     font-family: 'Montserrat', sans-serif;
-    background-color: rgb(4, 195, 13);
+    background-color: #ff6aa2;
     font-weight: 500;
     color: #edf0f1;
     border: none;
@@ -95,13 +94,13 @@
     border-radius: 5px;
     margin-left: 20px;
     cursor: pointer;
-    transition: all 0.5s ease 0s;
+    transition: all 0.2s ease 0s;
 }
 
 #reg-partner {
     padding: 9px 25px;
     font-family: 'Montserrat', sans-serif;
-    background-color: rgb(133, 108, 0);
+    background-color: rgb(0, 204, 255);
     font-weight: 500;
     color: #edf0f1;
     border: none;
@@ -114,7 +113,6 @@
 }
 
 #reg-partner:hover {
-    border-radius: 50px;
-    background-color: rgb(255, 187, 0);
+    background-color: rgb(101, 224, 255);
     transition: all 0.5s ease 0s;
 }

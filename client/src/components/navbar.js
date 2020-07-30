@@ -9,7 +9,6 @@ const NavBar = () => {
             <nav>
                 <ul class='nav__links'>
                     <li class='tab'><a href='#' class='tab_link'> For Restaurants </a></li>
-                    <li class='tab'><a href='#' class='tab_link'> For suppliers </a></li>
                 </ul>
             </nav>
             <a href="/register-partner">
