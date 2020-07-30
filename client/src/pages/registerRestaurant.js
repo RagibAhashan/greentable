@@ -58,9 +58,9 @@ const RegisterRestaurant = () => {
             <span style={{color:'#15c8ff'}}>{' We handle'}</span> the rest. </h2>
 
             
-            <h3>Increase your customer retention while providing a personalized subscription service.
+            <h4>Increase your customer retention while providing a personalized subscription service.
                 Our trained staff, delivery expertise and logistics will drive large orders with less
-                worry of when you’ll get your next order.</h3>
+                worry of when you’ll get your next order.</h4>
           </div>
 
     <form onSubmit={handleSubmit(onSubmit)} className='centered'>
