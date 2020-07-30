@@ -12,8 +12,9 @@
 
 .front-image {
     position: relative;
-    width: 100%;
-    /* padding-top: 100%; */
+    width: 80%;
+    padding-left: 10%;
+    padding-top: 20%;
 }
 
 .view-screen {
@@ -48,7 +49,7 @@
 .grand-message{
     font-family: 'Montserrat', sans-serif;
     font-size: 100px;
-    font-weight: bold;
+    font-weight: 900;
     display: flex;
     justify-content: flex-end;
     align-items: center;

@@ -15,6 +15,7 @@
     border-radius: 10px;
     border-color: #ff6aa2;
     border-style: solid;
+    background-color: rgb(250, 249, 249);
 }
 
 input {
@@ -60,3 +61,4 @@ h2 {
 #register-button:hover {
     background-color: #ff6aa2;
 }
+
