@@ -6,7 +6,7 @@
 
 .header-msg {
     margin: auto;
-    width: 40%;
+    width: 80%;
     height: 230px;
 
     padding-left: 30px;
@@ -25,39 +25,47 @@
 }
 
 .centered {
-    /* position: absolute; 
-    top: 350px;
-    left: 29%; */
     padding-left:  50px;
     padding-right: 50px;
     padding-top: 50px;
     padding-bottom: 50px;
     margin: auto;
-    width: 40%;
+    width: 70%;
+    height: 100%;
     border-radius: 10px;
     border-color: #ff6aa2;
     border-style: solid;
-    background-color: rgb(250, 249, 249);
+    background-color: rgba(250, 249, 249, 0.486);
     animation: 0.8s ease-out 0.1s 1 slideInFromLeft;
     transition: all 0.5s ease 0s;
 }
 
+.view-screen {
+    padding: 3em;
+    height: 100vh;
+    position: relative;
+    box-sizing: border-box;
+}
+
+
+#restaurant-reg {
+    background-color: rgba(162, 162, 162, 0.475);
+}
+
 
 input {
-    border-radius: 4px;
+    /* border-radius: 4px; */
     padding-left: 10px;
     margin-top: 0px;
     margin-bottom: 15px;
     width: 100%;
-    /* width: 650px; */
     font-size: larger;
-    height: 50px;
-    border-color: rgb(0, 0, 0, 0.2);
+    height: 40px;
+    border-color: rgba(255, 255, 255, 0);
 }
 
 input:focus { 
-    /* outline: none !important;  */
-    border-color: #000000;
+    border-color: #ffffff00;
     box-shadow: 0 0 0px #000000;
 }
 
@@ -66,7 +74,7 @@ h6 {
     font-weight: bold;
 }
 
-h2 {
+h3 {
     font-weight: bold;
 }
 

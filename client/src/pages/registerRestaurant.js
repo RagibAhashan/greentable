@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import { Row, Col, Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
-
+import NavBar from '../components/navbar';
 
 
 
@@ -42,7 +42,7 @@ const RegisterRestaurant = () => {
 
         console.log(restaurantName && restaurantWebsiteLink && restaurantAddress && restaurantCity && firstName && lastName && email && phoneNumber)
 
-        setFormIncomplete(!(restaurantName && restaurantWebsiteLink && restaurantAddress && restaurantCity && firstName && lastName && email && phoneNumber));
+        setFormIncomplete(!(restaurantName && restaurantAddress && restaurantCity && firstName && lastName && email && phoneNumber));
     })
 
     const { register, handleSubmit, watch, errors } = useForm();
@@ -50,120 +50,128 @@ const RegisterRestaurant = () => {
 
 
   return (
-      <div>
-          <div className='header-msg'>
+      <div id='restaurant-reg'>
+          {/* <NavBar/> */}
+          <br/>
 
-            <h2 style={{textAlign:"center"}}> 
-            <span style={{color:'rgb(248, 55, 255)'}}>You make</span> the food,
-            <span style={{color:'#15c8ff'}}>{' We handle'}</span> the rest. </h2>
-
-            
-            <h4>Increase your customer retention while providing a personalized subscription service.
-                Our trained staff, delivery expertise and logistics will drive large orders with less
-                worry of when you’ll get your next order.</h4>
-          </div>
-
-    <form onSubmit={handleSubmit(onSubmit)} className='centered'>
-            <div>
-            <h2> RESTAURANT DETAILS </h2>
-            <hr/>
-              <div>
-                <h6> Restaurant Name: </h6>
-                <input 
-                    placeholder="Enter your restaurant's name"
-                    onChange={(e) => {
-                        setRestaurantName(e.target.value) 
-                    }}
-                />
-            </div>
-
-            <div>
-                <h6> Restaurant Website Link: </h6>
-                <input 
-                    placeholder="Enter your restaurant website link"
-                    onChange={(e) => {
-                        setRestaurantWebsiteLink(e.target.value) 
-                    }}
-                />
-            </div>
-
-            <div>
-                <h6> Street Address: </h6>
-                <input 
-                    placeholder="Enter your restaurant's street address"
-                    onChange={(e) => {
-                        setRestaurantAddress(e.target.value) 
-                    }}
-                />
-            </div>
-
-            <div>
-                <h6> City: </h6>
-                <input 
-                    placeholder="Enter your City"
-                    onChange={(e) => {
-                        setRestaurantCity(e.target.value) 
-                    }}
-                />
-            </div>
-
-            <br/>
-            <h2> PERSONAL DETAILS </h2>
-            <hr/>
-            <div>
-                <h6> First Name: </h6>
-                <input 
-                    placeholder="Enter your first name"
-                    onChange={(e) => {
-                        setFirsName(e.target.value) 
-                    }}
-                />
-            </div>
-
-            <div>
-                <h6> Last Name: </h6>
-                <input 
-                    placeholder="Enter your last name"
-                    onChange={(e) => {
-                        setLastName(e.target.value) 
-                    }}
-                />
-            </div>
-
-            <div>
-                <h6> Email Address: </h6>
-                <input 
-                    placeholder="Enter your Email address"
-                    onChange={(e) => {
-                        setEmail(e.target.value) 
-                    }}
-                />
-            </div>
-
-            <div>
-                <h6> Phone number: </h6>
-                <input 
-                    placeholder="Enter your phone number"
-                    onChange={(e) => {
-                        setPhoneNumber(e.target.value) 
-                    }}
-                />
-            </div>
-
-            <Button id='register-button'
-                disabled={formIncomplete}
-                onClick={()=>{history.push("/");}}
-            > 
-                Register 
-            </Button>
-
+          <section class='view-screen'>  
+          
+          
+        <Row style={{backgroundColor:'white', width:'90%', margin:'auto'}}>
 
           
-      </div>
-    </form>
+            <Col>
+                <div className='header-msg'>
+
+                    <h2 style={{textAlign:"center"}}> 
+                    <span style={{color:'rgb(248, 55, 255)'}}>You make</span> the food,
+                    <span style={{color:'#15c8ff'}}>{' We handle'}</span> the rest. </h2>
+
+                    
+                    <h4>Increase your customer retention while providing a personalized subscription service.
+                        Our trained staff, delivery expertise and logistics will drive large orders with less
+                        worry of when you’ll get your next order.</h4>
+                </div>
+            </Col>
+
+        <Col>
+         
+        <form onSubmit={handleSubmit(onSubmit)} className='centered'>
+                <div>
+                <h3> RESTAURANT DETAILS </h3>
+                <hr/>
+                <div>
+                    <input 
+                        placeholder="Restaurant Name"
+                        onChange={(e) => {
+                            setRestaurantName(e.target.value) 
+                        }}
+                    />
+                </div>
+
+                <div>
+                    <input 
+                        placeholder="Restaurant Website Link (Optional)"
+                        onChange={(e) => {
+                            setRestaurantWebsiteLink(e.target.value) 
+                        }}
+                    />
+                </div>
+
+                <div>
+                    <input 
+                        placeholder="Street Address"
+                        onChange={(e) => {
+                            setRestaurantAddress(e.target.value) 
+                        }}
+                    />
+                </div>
+
+                <div>
+                    <input 
+                        placeholder="City"
+                        onChange={(e) => {
+                            setRestaurantCity(e.target.value) 
+                        }}
+                    />
+                </div>
+
+                <br/>
+                <h3> PERSONAL DETAILS </h3>
+                <hr/>
+                <div>
+                    <input 
+                        placeholder="First Name"
+                        onChange={(e) => {
+                            setFirsName(e.target.value) 
+                        }}
+                    />
+                </div>
+
+                <div>
+                    <input 
+                        placeholder="Last Name"
+                        onChange={(e) => {
+                            setLastName(e.target.value) 
+                        }}
+                    />
+                </div>
+
+                <div>
+                    <input 
+                        placeholder="Email Address"
+                        onChange={(e) => {
+                            setEmail(e.target.value) 
+                        }}
+                    />
+                </div>
+
+                <div>
+                    <input 
+                        placeholder="Phone number"
+                        onChange={(e) => {
+                            setPhoneNumber(e.target.value) 
+                        }}
+                    />
+                </div>
+
+                <Button id='register-button'
+                    disabled={formIncomplete}
+                    onClick={()=>{history.push("/");}}
+                > 
+                    Register 
+                </Button>
+
+
+            
+            </div>
+        </form>
+        </Col>
+    </Row>
+    </section>
 
     
-    
+    <section class='view-screen'> More info... </section>
     </div>
   );
 }
