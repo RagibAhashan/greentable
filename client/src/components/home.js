@@ -107,7 +107,7 @@ const HomePage = () => {
 
 
                 <div id='container'>
-                    <Button id='notified-btn'> {'Secure your spot on our wait list'} </Button>
+                    <Button id='notified-btn' style={{marginTop:'50px'}}> {'Secure your spot on our wait list'} </Button>
                 </div>
             </section>
 

@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Row, Col, Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import NavBar from '../components/navbar';
-
+import FooterPage from '../components/footerComponent';
 
 
 
@@ -33,7 +33,6 @@ const RegisterRestaurant = () => {
             '\nrestaurantWebsiteLink', restaurantWebsiteLink,
             '\nrestaurantAddress', restaurantAddress,
             '\nrestaurantCity' , restaurantCity,
-
             '\nirstName' , firstName,
             '\nlastName' , lastName,
             '\nemail' , email,
@@ -51,7 +50,7 @@ const RegisterRestaurant = () => {
 
   return (
       <div id='restaurant-reg'>
-          {/* <NavBar/> */}
+          <NavBar/>
           <br/>
 
           <section class='view-screen'>  
@@ -171,7 +170,26 @@ const RegisterRestaurant = () => {
     </section>
 
     
-    <section class='view-screen'> More info... </section>
+    <section class='view-screen'> 
+        More info... 
+        <Row style={{ height: '30%'}}>
+            <Col> Illustration Here </Col>
+            <Col> Content here </Col>
+        </Row>
+
+        <Row style={{ height: '30%'}}>
+            <Col> Content here </Col>
+            <Col> Illustration Here </Col>
+        </Row>
+
+        <Row style={{ height: '30%'}}>
+            <Col> Illustration Here </Col>
+            <Col> Content here </Col>
+        </Row>
+    </section>
+    
+    <FooterPage/>
+
     </div>
   );
 }
