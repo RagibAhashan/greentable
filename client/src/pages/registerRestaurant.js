@@ -11,7 +11,7 @@ import axios from 'axios';
 
 
 
-const RegisterRestaurant = () => {
+const RegisterRestaurant = (props) => {
     const history = useHistory();
     const [restaurantName, setRestaurantName] = useState(false);
     const [restaurantWebsiteLink, setRestaurantWebsiteLink] = useState(false);
@@ -27,6 +27,7 @@ const RegisterRestaurant = () => {
 
     const [formIncomplete, setFormIncomplete] = useState(true);
 
+    console.log(props.location.search.replace('?', ''))
 
     useEffect(() => {
         console.log(
@@ -62,7 +63,7 @@ const RegisterRestaurant = () => {
             }
             
               const newSiteCopy = JSON.parse(JSON.stringify(dataPackage));
-              const response = await axios.post('http://localhost:4000/restaurant', {newSiteCopy});
+              const response = await axios.post('http://localhost:4000/restaurant', newSiteCopy);
         } catch (error) {
             console.log(error);
         }

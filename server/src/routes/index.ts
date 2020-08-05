@@ -9,8 +9,10 @@ const router = Router();
 const jsonParser = json();
 
 
-router.post('/restaurant/', RestaurantValidator.validatePartnerData(), jsonParser, Restaurant.addPartner);
 
+router.post('/restaurant/', RestaurantValidator.validatePartnerData(), jsonParser, Restaurant.addPartner);
+router.get('/restaurant/sign-up-user/:id', jsonParser, Restaurant.getConfimationUser);
+router.post('/restaurant/sign-up-restaurant-owner', jsonParser, Restaurant.signUpUser);
 
 
 export default router;
