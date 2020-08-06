@@ -1,15 +1,18 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import './home.css'
 import NavBar from './navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import LandingPageImage from '../assets/img/deliveringFood.png'
-
+import FooterPage from '../components/footerComponent'
 
 import GetOrder from '../assets/img/getorder.png';
 import PickFoods from '../assets/img/pickFoods.png';
 import Schedule from '../assets/img/schedule.png';
 
+import Busy from '../assets/img/busy.png'
+import Cooking from '../assets/img/cooking.PNG'
+import Delivery from '../assets/img/delivery.PNG'
 
 const HomePage = () => {
 
@@ -60,10 +63,12 @@ const HomePage = () => {
                 <div style={{display: 'flex', justifyContent: 'center'}}>
 
                 
-                <Row style={{  transform: 'translate(0%, 20%)', paddingTop:'0%', textAlign:'center', width:'1800px'}} >
+                <Row style={{  transform: 'translate(0%, 20%)', paddingTop:'0%', textAlign:'center', width:'80%'}} >
 
                         <Col >
-                            <img src={PickFoods} class="col-image" alt='brouse'/>
+                            <img src={PickFoods} alt='brouse'
+                                style={{width:'300px'}}
+                            />
                             
                             
                             <div style={{textAlign:'center'}}>
@@ -86,16 +91,16 @@ const HomePage = () => {
                         <Col 
                         // style={{ top:'60%', transform: 'translate(30%, 0%)'}}
                         > 
-                            <img src={Schedule} class="col-image" alt='schedule' style={{width:'470px'}}/>
+                            <img src={Schedule} alt='schedule' style={{width:'470px'}}/>
                             <h2 style={{ top:'60%', transform: 'translate(45%, 10%)', width:'300px'}}> Schedule date, time and frequency of meals </h2>
                             <h6 style={{ top:'60%', transform: 'translate(45%, 10%)', width:'300px'}}> 
-                            Mix and match the days you'd like to have your preferred meals!
+                                Mix and match the days you'd like to have your preferred meals!
                             </h6>
                         </Col>
                         <Col 
                             // style={{ top:'60%', transform: 'translate(20%, 0%)', width:'50px'}}
                             > 
-                            <img src={GetOrder} class="col-image" alt='picup' style={{width:'580px'}}/>
+                            <img src={GetOrder}  alt='picup' style={{width:'580px'}}/>
                             <h2 style={{ top:'60%', transform: 'translate(57%, 10%)', width:'300px'}}> Get your order </h2>
                             <p style={{ top:'60%', transform: 'translate(57%, 10%)', width:'300px'}}> 
                                 We'll shoot you a text reminding you of your order, and you'll get to enjoy your meals with no worry.
@@ -111,14 +116,132 @@ const HomePage = () => {
                 </div>
             </section>
 
-            <section class='view-screen' id='third-view'>    
-                <Row>  
-                    <h1 style={{position: 'absolute', left: '50%', top: '10%',
-                    transform: 'translate(-50%, -50%)'}}> Support local Businesses </h1>
+            <section 
+            // class='view-screen'
+            style={{
+                // backgroundColor:'grey',
+                marginBottom:'300px',
+                marginTop:'-450px'}}
+            >    
+                
+
+                
+                <div style={{
+                    margin:'auto',
+                }}>
+                    <section>
+
+                    <h1
+                        style={{
+                            color:'white',
+                            position:'absolute',
+                            top:'235%',
+                            left:'15%',
+                            fontSize:'60px'
+                        }}
+                        >
+                        You're busy, we know that
+                    </h1>
+
+                    <h2
+                        style={{
+                            color:'white',
+                            position:'absolute',
+                            top:'243%',
+                            left:'16%',
+                            width:'30%'
+                        }}
+                        >
+                        More time to focus on the important things by eliminating groceries.
+                    </h2>
+                    <img src={Busy}  alt='schedule' style={{
+                        left: '50%',
+                        width:'100%',
+                        height: '110%'
+                    }}/>
+
+                    </section>
+                </div>
+
+
+                <Row>
+                
+
+                    <Col>
+                    <img src={Cooking}  alt='schedule' style={{
+                        paddingLeft: '10%',
+     
+                    }}/>
+                    </Col>
+
+                    <Col>
+                        <h1
+                            style={{ marginTop:'200px', marginLeft: '100px', fontSize:'60px'}}
+                        >
+                            Sit back and relax
+                        </h1>
+
+                        <h2 style={{ marginLeft: '100px'}}>
+                            Let us worry about cooking, your own personal chef
+                        </h2>
+                    </Col>
                 </Row>
+
+
+
+
+                <div style={{
+                    margin:'auto',
+                    marginTop:'-230px'
+                }}>
+                    <section>
+
+                    <h1
+                        style={{
+                            color:'white',
+                            position:'absolute',
+                            top:'370%',
+                            left:'15%',
+                            fontSize:'60px'
+                        }}
+                        >
+                        We'll have your food ready
+                    </h1>
+
+                    <h2
+                        style={{
+                            color:'white',
+                            position:'absolute',
+                            top:'378%',
+                            left:'15%',
+                            width:'30%'
+                        }}
+                        >
+                        We know when you want and how you want it
+                    </h2>
+                    <img src={Delivery}  alt='schedule' style={{
+                        left: '50%',
+                        width:'100%',
+                        height: '110%'
+                    }}/>
+
+                    </section>
+                </div>
+                
+
             </section>
 
-            
+            <div id='container' 
+                style={{
+                    backgroundColor:'#FD488E',
+                    marginTop:'-200px'
+                }}
+            >
+                <Button id='notified-btn' style={{marginTop:'50px', marginBottom:'120px', borderColor:'black'}}> {'Order now!'} </Button>
+            </div>
+
+
+            <FooterPage />
         </div>
     ) 
 }

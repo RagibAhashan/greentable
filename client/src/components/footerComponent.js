@@ -6,37 +6,31 @@ import './footerPage.css'
 const FooterPage = () => {
   return (
     <MDBFooter color="blue" id='footer'>
-      <MDBContainer fluid className="text-center text-md-left">
+      <MDBContainer fluid className="text-center text-md-left" >
         <MDBRow>
-          <MDBCol md="6">
-            <h5 className="title">Footer Content</h5>
-            <p>
-              Here you can use rows and columns here to organize your footer
-              content.
-            </p>
+          <MDBCol md="3">
+          
           </MDBCol>
-          <MDBCol md="6">
-            <h5 className="title">Links</h5>
-            <ul>
-              <li className="list-unstyled">
-                <a href="#!">Link 1</a>
-              </li>
-              <li className="list-unstyled">
-                <a href="#!">Link 2</a>
-              </li>
-              <li className="list-unstyled">
-                <a href="#!">Link 3</a>
-              </li>
-              <li className="list-unstyled">
-                <a href="#!">Link 4</a>
-              </li>
-            </ul>
+          <MDBCol md="2" style={{color:'white', fontSize:'30px', marginTop:'30px' }}>
+            Home
           </MDBCol>
+
+          <MDBCol md="2" style={{color:'white', fontSize:'30px', marginTop:'30px' }}>
+            Terms of Service
+          </MDBCol>
+
+          <MDBCol md="1" style={{color:'white', fontSize:'30px', marginTop:'30px' }}>
+            Contact us
+          </MDBCol>
+          
         </MDBRow>
+
+
       </MDBContainer>
       <div className="footer-copyright text-center py-3">
-        <MDBContainer fluid>
-          &copy; {new Date().getFullYear()} Copyright: <a href="/"> greentable.com </a>
+        <h2 style={{color:'black'}}> SevenMeal </h2>
+        <MDBContainer fluid style={{color:'black'}}>
+          &copy; {new Date().getFullYear()} Copyright: <a href="/" style={{color:'black'}}> SevenMeal.com </a>
         </MDBContainer>
       </div>
     </MDBFooter>

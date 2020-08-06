@@ -64,6 +64,7 @@ const RegisterRestaurant = (props) => {
             
               const newSiteCopy = JSON.parse(JSON.stringify(dataPackage));
               const response = await axios.post('http://localhost:4000/restaurant', newSiteCopy);
+              console.log(response)
         } catch (error) {
             console.log(error);
         }
@@ -162,7 +163,7 @@ const RegisterRestaurant = (props) => {
                         <input 
                             placeholder="Email Address"
                             onChange={(e) => {
-                                setEmail(e.target.value) 
+                                setEmail(e.target.value.toLowerCase()) 
                             }}
                         />
                     </div>
