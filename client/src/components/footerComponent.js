@@ -11,15 +11,15 @@ const FooterPage = () => {
           <MDBCol md="3">
           
           </MDBCol>
-          <MDBCol md="2" style={{color:'white', fontSize:'30px', marginTop:'30px' }}>
+          <MDBCol md="2" style={{color:'#250411', fontSize:'30px', marginTop:'30px' }}>
             Home
           </MDBCol>
 
-          <MDBCol md="2" style={{color:'white', fontSize:'30px', marginTop:'30px' }}>
+          <MDBCol md="2" style={{color:'#250411', fontSize:'30px', marginTop:'30px' }}>
             Terms of Service
           </MDBCol>
 
-          <MDBCol md="1" style={{color:'white', fontSize:'30px', marginTop:'30px' }}>
+          <MDBCol md="1" style={{color:'#250411', fontSize:'30px', marginTop:'30px' }}>
             Contact us
           </MDBCol>
           
@@ -28,9 +28,9 @@ const FooterPage = () => {
 
       </MDBContainer>
       <div className="footer-copyright text-center py-3">
-        <h2 style={{color:'black'}}> SevenMeal </h2>
-        <MDBContainer fluid style={{color:'black'}}>
-          &copy; {new Date().getFullYear()} Copyright: <a href="/" style={{color:'black'}}> SevenMeal.com </a>
+        <h2 style={{color:'white'}}> SevenMeal </h2>
+        <MDBContainer fluid style={{color:'white'}}>
+          &copy; {new Date().getFullYear()} Copyright: <a href="/" style={{color:'white'}}> SevenMeal.com </a>
         </MDBContainer>
       </div>
     </MDBFooter>
