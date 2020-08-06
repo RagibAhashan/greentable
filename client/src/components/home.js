@@ -136,7 +136,7 @@ const HomePage = () => {
                             color:'white',
                             position:'absolute',
                             top:'255%',
-                            left:'15%',
+                            left:'10%',
                             fontSize:'60px'
                         }}
                         >
@@ -148,7 +148,7 @@ const HomePage = () => {
                             color:'white',
                             position:'absolute',
                             top:'263%',
-                            left:'15%',
+                            left:'10%',
                             width:'30%'
                         }}
                         >
@@ -200,8 +200,8 @@ const HomePage = () => {
                         style={{
                             color:'white',
                             position:'absolute',
-                            top:'430%',
-                            left:'15%',
+                            top:'420%',
+                            left:'10%',
                             fontSize:'60px'
                         }}
                         >
@@ -212,8 +212,8 @@ const HomePage = () => {
                         style={{
                             color:'white',
                             position:'absolute',
-                            top:'440%',
-                            left:'15%',
+                            top:'430%',
+                            left:'10%',
                             width:'30%'
                         }}
                         >
