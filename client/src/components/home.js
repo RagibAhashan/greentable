@@ -212,7 +212,7 @@ const HomePage = () => {
                         style={{
                             color:'white',
                             position:'absolute',
-                            top:'430%',
+                            top:'428%',
                             left:'10%',
                             width:'30%'
                         }}
