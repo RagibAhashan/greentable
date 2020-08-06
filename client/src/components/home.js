@@ -112,7 +112,7 @@ const HomePage = () => {
 
 
                 <div id='container'>
-                    <Button id='notified-btn' style={{marginTop:'50px'}}> {'Secure your spot on our wait list'} </Button>
+                    <Button id='notified-btn' style={{marginTop:'50px', borderColor:'black'}}> {'Secure your spot on our wait list'} </Button>
                 </div>
             </section>
 
@@ -121,7 +121,7 @@ const HomePage = () => {
             style={{
                 // backgroundColor:'grey',
                 marginBottom:'300px',
-                marginTop:'-450px'}}
+                marginTop:'-200px'}}
             >    
                 
 
@@ -135,7 +135,7 @@ const HomePage = () => {
                         style={{
                             color:'white',
                             position:'absolute',
-                            top:'235%',
+                            top:'255%',
                             left:'15%',
                             fontSize:'60px'
                         }}
@@ -147,8 +147,8 @@ const HomePage = () => {
                         style={{
                             color:'white',
                             position:'absolute',
-                            top:'243%',
-                            left:'16%',
+                            top:'263%',
+                            left:'15%',
                             width:'30%'
                         }}
                         >
@@ -192,7 +192,7 @@ const HomePage = () => {
 
                 <div style={{
                     margin:'auto',
-                    marginTop:'-230px'
+                    marginTop:'-130px'
                 }}>
                     <section>
 
@@ -200,7 +200,7 @@ const HomePage = () => {
                         style={{
                             color:'white',
                             position:'absolute',
-                            top:'370%',
+                            top:'430%',
                             left:'15%',
                             fontSize:'60px'
                         }}
@@ -212,7 +212,7 @@ const HomePage = () => {
                         style={{
                             color:'white',
                             position:'absolute',
-                            top:'378%',
+                            top:'440%',
                             left:'15%',
                             width:'30%'
                         }}
