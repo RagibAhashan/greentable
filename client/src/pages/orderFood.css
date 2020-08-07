@@ -1,0 +1,22 @@
+#image {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
+}
+
+.days-btn-group {
+    margin-left:'10px';
+    color: black;
+    background-color: white;
+}
+
+.days-btn-group:hover {
+    background-color: #ff25a8ac;
+}
+
+.days-btn-group:focus{
+    background-color: #ff25a8;
+    box-shadow: none;
+}

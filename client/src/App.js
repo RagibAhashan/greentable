@@ -6,6 +6,8 @@ import LoginPage from './pages/loginPage'
 import RegisterRestaurant from './pages/registerRestaurant';
 import DeliveryDriverRegister from './pages/deliveryDriverRegister';
 import RestaurantGetStarted from './pages/restaurantGetStarted'
+import OrderFood from './pages/orderFood';
+
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
           <Route path='/register-restaurant' component={RegisterRestaurant}/>
           <Route path='/restaurant/get-started/:loginEmail' name='loginEmail' component={RestaurantGetStarted}/>
           <Route path='/register-partner' component={DeliveryDriverRegister}/>
+          <Route path='/order-food' component={OrderFood}/>
         </Switch>
       </Router>
   );

@@ -13,9 +13,10 @@ import Schedule from '../assets/img/schedule.png';
 import Busy from '../assets/img/busy.png'
 import Cooking from '../assets/img/cooking.PNG'
 import Delivery from '../assets/img/delivery.PNG'
+import { useHistory } from 'react-router-dom';
 
 const HomePage = () => {
-
+    const history = useHistory();
     return (
         <div>
             <NavBar/>
@@ -31,7 +32,9 @@ const HomePage = () => {
                         </h4>
                         
                         <div id='container'>
-                            <Button id='order-now'
+                            <Button 
+                                id='order-now'
+                                onClick={()=>{history.push("/order-food");}}
                             > {'Order now'} </Button>
                         </div>
 
@@ -165,15 +168,11 @@ const HomePage = () => {
 
 
                 <Row>
-                
-
                     <Col>
                     <img src={Cooking}  alt='schedule' style={{
                         paddingLeft: '10%',
-     
                     }}/>
                     </Col>
-
                     <Col>
                         <h1
                             style={{ marginTop:'200px', marginLeft: '100px', fontSize:'60px'}}
