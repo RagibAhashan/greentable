@@ -14,7 +14,6 @@ const SelectFoodComponent = (props) => {
     const [selectedRestaurant, setSelectedRestaurant] = useState('');
 
     useEffect(()=>{
-        console.log('day', getDay(day))
     }, [day])
 
     useEffect(()=> {
@@ -67,11 +66,6 @@ const SelectFoodComponent = (props) => {
         
         setAllRestaurants([FakeRestaurants, FakeRestaurants2]);
     }, []);
-
-    useEffect(()=>{
-        console.log('props', props)
-        console.log(history)
-    })
 
 
     const PostRestaurant = ({logoURL, name}) => {

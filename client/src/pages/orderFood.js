@@ -10,20 +10,21 @@ import Button from '@material-ui/core/Button';
 import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
 import ArrowForwardIosRoundedIcon from '@material-ui/icons/ArrowForwardIosRounded';
 
+
+
 const OrderFood = () => {
 
     const [day, setDay] = useState(0);
-    const [mondayOrders, setMondayOrder]        = useState({firstOrder: {}, secondOrder: {}});
-    const [tuesdayOrders, setTuesdayOrders]     = useState({firstOrder: {}, secondOrder: {}});
-    const [wednesdayOrders, setWednesdayOrders] = useState({firstOrder: {}, secondOrder: {}});
-    const [thursdayOrders, setThursdayOrders]   = useState({firstOrder: {}, secondOrder: {}});
-    const [fridayOrders, setFridayOrders]       = useState({firstOrder: {}, secondOrder: {}});
+    const [weekOrder, setWeekOrder] = useState({
+      Monday:    {first: {restaurant: 'Boustan', food: 'Shawarma', type: 'Middle Eastern • Halal • Healthy'},  second: {restaurant: '', food: '', type: ''}},
+      Tuesday:   {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}},
+      Wednesday: {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}},
+      Thursday:  {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}},
+      Friday:    {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}},
+      Saturday:  {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}},
+      Sunday:    {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}},
+    })
 
-
-
-    // useEffect(() => {
-
-    // }, [day])
 
     const getDay = (dayNum) => {
       switch (dayNum) {
@@ -46,7 +47,6 @@ const OrderFood = () => {
 
 
     const incrementDay = () => {
-      console.log(day)
       const d = (day + 1)%7;
       setDay(d);
     }
@@ -95,7 +95,11 @@ const OrderFood = () => {
                       <h1> Preview order </h1>
                       <hr />
                       <br />
-                      <PreviewOrder />
+                      <PreviewOrder
+                        weekOrder={weekOrder}
+                        getDay={getDay}
+                        setWeekOrder={setWeekOrder}
+                      />
                     </div>
                   </div>
                 </div>

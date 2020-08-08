@@ -9,13 +9,10 @@ const RestaurantMenu = (props) => {
     const [restaurantInfo, setRestaurantInfo] = useState(props['info'])
 
     useEffect(()=>{
-        // console.log('MenuProps', props)
         setRestaurantInfo(props['info']);
-        console.log(restaurantInfo)
     }, [restaurantInfo]);
 
     useEffect(()=>{
-        console.log('cart', cart)
     }, [cart]);
 
     const selectFood = (item) => {
