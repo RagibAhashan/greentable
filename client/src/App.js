@@ -8,8 +8,7 @@ import DeliveryDriverRegister from './pages/deliveryDriverRegister';
 import RestaurantGetStarted from './pages/restaurantGetStarted'
 import OrderFood from './pages/orderFood';
 
-
-function App() {
+const App = () => {
   return (
       <Router>
         <Switch>
@@ -18,7 +17,9 @@ function App() {
           <Route path='/register-restaurant' component={RegisterRestaurant}/>
           <Route path='/restaurant/get-started/:loginEmail' name='loginEmail' component={RestaurantGetStarted}/>
           <Route path='/register-partner' component={DeliveryDriverRegister}/>
+
           <Route path='/order-food' component={OrderFood}/>
+        
         </Switch>
       </Router>
   );

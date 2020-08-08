@@ -37,18 +37,25 @@ function getSteps() {
 function getStepContent(step) {
     switch (step) {
         case 0:
-        return 'Select campaign settings...';
+        return '';
         case 1:
-        return 'What is an ad group anyways?';
+        return '';
         case 2:
-        return 'This is the bit I really care about!';
+        return '';
         default:
-        return 'Unknown step';
+        return '';
     }
 }
 
 
 const OrderFood = () => {
+
+    const [mondayOrders, setMondayOrder]        = useState({firstOrder: {}, secondOrder: {}});
+    const [tuesdayOrders, setTuesdayOrders]     = useState({firstOrder: {}, secondOrder: {}});
+    const [wednesdayOrders, setWednesdayOrders] = useState({firstOrder: {}, secondOrder: {}});
+    const [thursdayOrders, setThursdayOrders]   = useState({firstOrder: {}, secondOrder: {}});
+    const [fridayOrders, setFridayOrders]       = useState({firstOrder: {}, secondOrder: {}});
+
     const classes = useStyles();
     const [activeStep, setActiveStep] = React.useState(0);
     const [skipped, setSkipped] = React.useState(new Set());
@@ -79,11 +86,7 @@ const OrderFood = () => {
       };
     
       const handleSkip = () => {
-        if (!isStepOptional(activeStep)) {
-          // You probably want to guard against something like this,
-          // it should never occur unless someone's actively trying to break something.
-          throw new Error("You can't skip a step that isn't optional.");
-        }
+
     
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
         setSkipped((prevSkipped) => {
@@ -99,31 +102,7 @@ const OrderFood = () => {
 
 
 
-
-
-
-
-
-
-    const [mondayOrders, setMondayOrder]        = useState({firstOrder: {}, secondOrder: {}});
-    const [tuesdayOrders, setTuesdayOrders]     = useState({firstOrder: {}, secondOrder: {}});
-    const [wednesdayOrders, setWednesdayOrders] = useState({firstOrder: {}, secondOrder: {}});
-    const [thursdayOrders, setThursdayOrders]   = useState({firstOrder: {}, secondOrder: {}});
-    const [fridayOrders, setFridayOrders]       = useState({firstOrder: {}, secondOrder: {}});
-
-
-    const SelectDayButtons = () => {
-        return (
-            <div class="btn-group btn-group-lg" role="group" aria-label="...">
-                <Button className='days-btn-group'> Monday </Button>
-                <Button className='days-btn-group'> Tuesday </Button>
-                <Button className='days-btn-group'> Wednesday </Button>
-                <Button className='days-btn-group'> Thrusday </Button>
-                <Button className='days-btn-group'> Friday </Button>
-            </div>
-        )
-    }
-
+    
 
 
     const StepperWeekdays = () => {
@@ -203,9 +182,7 @@ const OrderFood = () => {
 
 
          <StepperWeekdays />
-                {/* <SelectDayButtons /> */}
 
-                {/* <RestaurantsComponent /> */}
                 <SelectFoodComponent />
         
 
