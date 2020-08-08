@@ -6,11 +6,19 @@ import RestaurantMenu from '../components/restaurantMenu';
 
 
 const SelectFoodComponent = (props) => {
+
+    const { day, getDay } = props;
+
     const history = useHistory();
     const [allRestaurants, setAllRestaurants] = useState([]);
     const [selectedRestaurant, setSelectedRestaurant] = useState('');
 
+    useEffect(()=>{
+        console.log('day', getDay(day))
+    })
+
     useEffect(()=> {
+
         const FakeRestaurants = {
             'id': 'f4494b15-b037-452c-933c-f7e959dcda11',
             'logoImage': 'https://ih0.redbubble.net/image.222605779.1524/flat,1000x1000,075,f.jpg',
