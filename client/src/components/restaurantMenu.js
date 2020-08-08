@@ -4,23 +4,32 @@ import './restaurantMenu.css'
 
 
 const RestaurantMenu = (props) => {
+    const { info, weekOrder, setWeekOrder, day, getDay } = props;
 
-    const [cart, setCart] = useState([]);
-    const [restaurantInfo, setRestaurantInfo] = useState(props['info'])
-
-    useEffect(()=>{
-        setRestaurantInfo(props['info']);
-    }, [restaurantInfo]);
-
-    useEffect(()=>{
-    }, [cart]);
 
     const selectFood = (item) => {
+        console.log('ITEM', item)
+        const DAY = getDay(day);
 
-        setCart(cart.concat({
-            'name' : restaurantInfo.RestaurantName,
-            'item' : item
-        }))
+        console.log('weekOrder[DAY].first.restaurant', weekOrder[DAY].first.restaurant)
+        if (!weekOrder[DAY].first.restaurant && !weekOrder[DAY].second.restaurant) {
+
+            setWeekOrder({...weekOrder, [DAY]: 
+                {first: {restaurant: info.RestaurantName, food: item.name, type: 'Asian • Healthy'},  second: {restaurant: '', food: '', type: ''}},
+            })
+        }
+
+        if (weekOrder[DAY].first.restaurant && !weekOrder[DAY].second.restaurant) {
+            const firstMeal = weekOrder[DAY].first;
+
+            console.log('First meal is : ', firstMeal)
+
+            setWeekOrder({...weekOrder, [DAY]:
+                {first: firstMeal,  second: {restaurant: info.RestaurantName, food: item.name, type: 'Asian • Healthy'}},
+            })
+        }
+
+
     }
 
     const ShowFood = ({foodURL, name, description}) => {
@@ -50,12 +59,12 @@ const RestaurantMenu = (props) => {
         <div>
             <Grid container spacing={3} style={{width:'100%'}}>
 
-                {!restaurantInfo ? <div /> : restaurantInfo.Foods['Meals'].map((meal)=>{
+                {!info ? <div /> : info.Foods['Meals'].map((meal)=>{
                     return (
                         <Grid item xs={2} >
                             <div
                                 id='food'
-                                onClick={() => selectFood(meal.name)}
+                                onClick={() => selectFood(meal)}
                             >
                                 <ShowFood
                                     foodURL={meal.URL}

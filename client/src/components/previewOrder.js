@@ -7,7 +7,7 @@ const PreviewOrder = (props) => {
     const days = [0,1,2,3,4,5,6];
 
     useEffect(()=>{
-        console.log('PreviewOrder', weekOrder['Monday'])
+        // console.log('PreviewOrder', weekOrder['Monday'])
     })
 
     const removeItem = (day) => {
@@ -21,7 +21,7 @@ const PreviewOrder = (props) => {
 
             {days.map((day) => {
                 const weekDay = getDay(day);
-                console.log(weekOrder[weekDay]['first']['restaurant'])
+                // console.log(weekOrder[weekDay]['first']['restaurant'])
                 return ( weekOrder[weekDay]['first']['restaurant'] ? 
                     <div>
                         <h4> {getDay(day)} </h4>
@@ -40,8 +40,9 @@ const PreviewOrder = (props) => {
                                     </div>
                                 </div>
                             </Grid>
-
-                            <Grid item xs={6}>
+                        {weekOrder[weekDay]['second']['restaurant'] ? 
+                        
+                        <Grid item xs={6}>
                                 <div class="card" id='image'>
                                     <div class="card-body">
                                         <h4 class="card-title"> {weekOrder[weekDay]['second']['restaurant']} </h4>
@@ -54,6 +55,7 @@ const PreviewOrder = (props) => {
                                     </div>
                                 </div>
                             </Grid>
+                        : <div />}
                         </Grid>
                         <hr />
                     </div>

@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from 'react-router-dom';
 import RestaurantMenu from '../components/restaurantMenu';
 
 
 const SelectFoodComponent = (props) => {
 
-    const { day, getDay } = props;
+    const { day, getDay, weekOrder, setWeekOrder } = props;
 
     const history = useHistory();
     const [allRestaurants, setAllRestaurants] = useState([]);
@@ -140,6 +139,10 @@ const SelectFoodComponent = (props) => {
                     <h1> {selectedRestaurant.RestaurantName} </h1>
                     <RestaurantMenu 
                         info={selectedRestaurant}
+                        weekOrder={weekOrder}
+                        setWeekOrder={setWeekOrder}
+                        day={day}
+                        getDay={getDay}
                     />
                 </div>
             )

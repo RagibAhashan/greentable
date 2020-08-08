@@ -5,7 +5,7 @@ import FooterPage from '../components/footerComponent'
 import { Row, Col } from 'react-bootstrap';
 import SelectFoodComponent from '../components/selectFoodComponent'
 import PreviewOrder from '../components/previewOrder'
-
+import { useHistory } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
 import ArrowForwardIosRoundedIcon from '@material-ui/icons/ArrowForwardIosRounded';
@@ -13,10 +13,10 @@ import ArrowForwardIosRoundedIcon from '@material-ui/icons/ArrowForwardIosRounde
 
 
 const OrderFood = () => {
-
+    const history = useHistory();
     const [day, setDay] = useState(0);
     const [weekOrder, setWeekOrder] = useState({
-      Monday:    {first: {restaurant: 'Boustan', food: 'Shawarma', type: 'Middle Eastern • Halal • Healthy'},  second: {restaurant: '', food: '', type: ''}},
+      Monday:    {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}},
       Tuesday:   {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}},
       Wednesday: {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}},
       Thursday:  {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}},
@@ -43,12 +43,14 @@ const OrderFood = () => {
     const decrementDay = () => {
       const d = (day - 1)%7;
       setDay(d);
+      history.push('/order-food');
     }
 
 
     const incrementDay = () => {
       const d = (day + 1)%7;
       setDay(d);
+      history.push('/order-food');
     }
 
 
@@ -85,7 +87,12 @@ const OrderFood = () => {
                             </div>
                         </div>
                         <hr />
-                          <SelectFoodComponent day={day} getDay={getDay}/>
+                          <SelectFoodComponent
+                            day={day}
+                            getDay={getDay}
+                            setWeekOrder={setWeekOrder}
+                            weekOrder={weekOrder}
+                          />
                     </div>
                   </div>
 
