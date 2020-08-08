@@ -10,6 +10,10 @@ const PreviewOrder = (props) => {
         console.log('PreviewOrder', weekOrder['Monday'])
     })
 
+    const removeItem = (day) => {
+
+    }
+
 
 
     return (
