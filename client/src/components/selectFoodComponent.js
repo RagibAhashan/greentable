@@ -15,7 +15,7 @@ const SelectFoodComponent = (props) => {
 
     useEffect(()=>{
         console.log('day', getDay(day))
-    })
+    }, [day])
 
     useEffect(()=> {
 
