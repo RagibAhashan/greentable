@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Grid from "@material-ui/core/Grid";
+import './restaurantMenu.css'
+
 
 const RestaurantMenu = (props) => {
 
@@ -12,12 +14,21 @@ const RestaurantMenu = (props) => {
         console.log(restaurantInfo)
     }, [restaurantInfo]);
 
+    useEffect(()=>{
+        console.log('cart', cart)
+    }, [cart]);
 
+    const selectFood = (item) => {
 
+        setCart(cart.concat({
+            'name' : restaurantInfo.RestaurantName,
+            'item' : item
+        }))
+    }
 
     const ShowFood = ({foodURL, name, description}) => {
         return (
-            <div class="card" id='image'>
+            <div class="card" >
                 <img class="card-img-top" src={foodURL} alt="Card image cap" 
                     style={{
                         flexShrink:'0',
@@ -44,12 +55,14 @@ const RestaurantMenu = (props) => {
 
                 {!restaurantInfo ? <div /> : restaurantInfo.Foods['Meals'].map((meal)=>{
                     return (
-                        <Grid item xs={2} id='food'>
-                            <div>
+                        <Grid item xs={2} >
+                            <div
+                                id='food'
+                                onClick={() => selectFood(meal.name)}
+                            >
                                 <ShowFood
                                     foodURL={meal.URL}
                                     name={meal.name}
-                                    // price={meal.price}
                                     description={meal.Description}
                                 />
                             </div>

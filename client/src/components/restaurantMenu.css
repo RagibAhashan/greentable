@@ -1,3 +1,11 @@
+#food {
+    cursor: pointer;
+    transition: all 0.5s ease 0s;
+    transform: translateY(0%);
+}
+
 #food:hover {
-    background-color: 'red';
+  transition: all 0.5s ease 0s;
+  transform: translateY(-2%);
+  box-shadow: 5px 10px #f4f0f0;
 }

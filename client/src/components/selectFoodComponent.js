@@ -5,21 +5,6 @@ import { useHistory } from 'react-router-dom';
 import RestaurantMenu from '../components/restaurantMenu';
 
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-      flexGrow: 1
-    },
-    paper: {
-      padding: theme.spacing(2),
-      textAlign: "left",
-      color: theme.palette.text.secondary
-    }
-}));
-
-
-
-
-
 const SelectFoodComponent = (props) => {
     const history = useHistory();
     const [allRestaurants, setAllRestaurants] = useState([]);
@@ -34,10 +19,10 @@ const SelectFoodComponent = (props) => {
             'RestaurantType': ['Middle Eastern', 'Healthy'],
             'Foods': {
                 'Meals': [
-                    {'name': 'Shawarma', 'price': '$12.00'},
-                    {'name': 'Shawarma Miste', 'price': '$13.00'},
-                    {'name': 'Sandwhich', 'price': '$6.00'},
-                    {'name': 'Kababs', 'price': '$8.00'},
+                    {'name': 'Shawarma', 'price': '$12.00', 'Description': 'Rice, Potatoes, Salad and Beaf', 'URL': 'https://nutritioninthekitch.com/wp-content/uploads/2018/04/0D8A0541.jpg'},
+                    {'name': 'Shawarma Miste', 'price': '$13.00', 'Description': 'Rice, Potatoes, Salad, Beaf & Chicken', 'URL': 'https://lh3.googleusercontent.com/proxy/pGAHOBOHO3q4EfezEI9fyI7wIaKdMayrwD4tnZwMrWCpV4eSolC-NBEqSNy2MVEFjhiP--O2ciSiHLDWI25OxiSuM1TCQNEKC55Eaz5zNXwyfqRiFHiI8KMdRm6vuQ7yC7A'},
+                    {'name': 'Sandwhich', 'price': '$6.00', 'Description': 'Middle Eastern Chicken Sandwhich', 'URL': 'https://feelgoodfoodie.net/wp-content/uploads/2018/05/Beef-Shawarma-Wrap-9-1.jpg'},
+                    {'name': 'Kababs', 'price': '$8.00', 'Description': 'Rice, Salad and Kababs', 'URL': 'https://i1.wp.com/jerusalem-shawarma.ca/wp-content/uploads/2018/11/PHOTO-2018-11-09-12-05-32-8.jpg?fit=960%2C640'},
                 ],
     
                 'Drinks': [
@@ -81,14 +66,6 @@ const SelectFoodComponent = (props) => {
     })
 
 
-
-    const classes = useStyles();
-
-
-
-    const [firstMeal, setFirstMeal] = useState('');
-    const [secondMeal, setSecondMeal] = useState('');
-
     const PostRestaurant = ({logoURL, name}) => {
         
         return (
@@ -99,7 +76,6 @@ const SelectFoodComponent = (props) => {
                         minWidth:'100%',
                         minHeight:'100%'
                     }} 
-                    // onClick={()=>{setSelectedRestaurant(name)}}
                 />
                 <div class="card-body">
                     <h5 class="card-title"> {name} </h5>
@@ -119,12 +95,14 @@ const SelectFoodComponent = (props) => {
         
         return (
             <div>
-                <Grid container spacing={3} style={{width:'75%'}}>
+                <Grid container spacing={3} style={{width:'100%'}}>
 
                     {allRestaurants.map((restaurant)=>{
                         return (
-                            <Grid item xs={4}>
-                                <div onClick={()=>{
+                            <Grid item xs={3}>
+                                <div
+                                    id='selection'
+                                    onClick={()=>{
                                     setSelectedRestaurant(restaurant);
                                     history.push('/order-food/restaurant?' + restaurant.id)}}
                                 >
@@ -167,15 +145,24 @@ const SelectFoodComponent = (props) => {
     }
 
 
+
+
+
+
+
     return (
         <div style={{
-                width:'80%',
+                width:'90%',
                 margin: 'auto',
                 paddingTop:'100px',
                 marginBottom:'100px'
             }}
         >
             <ChooseMeal />
+
+            
+
+
         </div>
     );
 }
