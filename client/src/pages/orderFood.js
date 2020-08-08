@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './orderFood.css'
 import NavBar from '../components/navbar'
 import FooterPage from '../components/footerComponent'
-import { Row, Col } from 'react-bootstrap';
 import SelectFoodComponent from '../components/selectFoodComponent'
 import PreviewOrder from '../components/previewOrder'
 import { useHistory } from 'react-router-dom';

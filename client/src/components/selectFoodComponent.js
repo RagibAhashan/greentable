@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Grid from "@material-ui/core/Grid";
 import { useHistory } from 'react-router-dom';
 import RestaurantMenu from '../components/restaurantMenu';
-
+import Button from '@material-ui/core/Button';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 const SelectFoodComponent = (props) => {
 
@@ -136,6 +137,11 @@ const SelectFoodComponent = (props) => {
         else {
             return (
                 <div>
+                    <Button
+                        startIcon={<ArrowBackIcon />}
+                        onClick={()=> history.push('/order-food')}
+                        style={{marginBottom: '50px'}}
+                    > Select a different restaurant </Button>
                     <h1> {selectedRestaurant.RestaurantName} </h1>
                     <RestaurantMenu 
                         info={selectedRestaurant}
@@ -159,7 +165,7 @@ const SelectFoodComponent = (props) => {
         <div style={{
                 width:'90%',
                 margin: 'auto',
-                paddingTop:'100px',
+                paddingTop:'20px',
                 marginBottom:'100px'
             }}
         >
