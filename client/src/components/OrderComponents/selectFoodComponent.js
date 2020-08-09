@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Grid from "@material-ui/core/Grid";
 import { useHistory } from 'react-router-dom';
-import RestaurantMenu from '../components/restaurantMenu';
+import RestaurantMenu from './restaurantMenu';
 import Button from '@material-ui/core/Button';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 

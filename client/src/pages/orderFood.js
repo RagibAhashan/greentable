@@ -1,19 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import './orderFood.css'
+import { useHistory } from 'react-router-dom';
 import NavBar from '../components/navbar'
 import FooterPage from '../components/footerComponent'
-import SelectFoodComponent from '../components/selectFoodComponent'
-import PreviewOrder from '../components/previewOrder'
-import { useHistory } from 'react-router-dom';
+import SelectFoodComponent from '../components/OrderComponents/selectFoodComponent'
+import PreviewOrder from '../components/OrderComponents/previewOrder'
+import OrderExplainModal from '../components/OrderComponents/orderExplainModal';
 import Button from '@material-ui/core/Button';
 import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
 import ArrowForwardIosRoundedIcon from '@material-ui/icons/ArrowForwardIosRounded';
+import './orderFood.css'
 
 
 
 const OrderFood = () => {
     const history = useHistory();
     const [day, setDay] = useState(0);
+    const [ordersComplete, setOrderComplete] = useState(false);
+    const [showExplaination, setShowExplaination] = useState(false);
+
+
     const [weekOrder, setWeekOrder] = useState({
       Monday:    {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}},
       Tuesday:   {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}},
@@ -22,6 +27,29 @@ const OrderFood = () => {
       Friday:    {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}},
       Saturday:  {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}},
       Sunday:    {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}},
+    });
+
+
+    useEffect(() => {
+      setTimeout(()=> {
+        setShowExplaination(true);
+      }, 300)
+    }, [])
+
+    useEffect(()=>{
+      let orders = 0;
+      for(let i=0; i<7; i++) {
+        if(weekOrder[getDay(i)].first.restaurant) {
+          orders++;
+        }
+        if(weekOrder[getDay(i)].second.restaurant) {
+          orders++;
+        }
+      }
+      setOrderComplete(orders === 14)
+      console.log('Day', getDay(day), 'orders', orders)
+
+
     })
 
 
@@ -53,11 +81,39 @@ const OrderFood = () => {
     }
 
 
+    const OrderComplete = () => {
+
+      let orders = 0;
+      for(let i=0; i<7; i++) {
+        if(weekOrder[getDay(i)].first.restaurant) {
+          orders++;
+        }
+        if(weekOrder[getDay(i)].second.restaurant) {
+          orders++;
+        }
+      }
+
+      if (ordersComplete) {   
+          return (
+            <Button style={{width:'100%', height:'100%', fontSize:'20px', backgroundColor:'#5de35d', color:'white'}}>
+              Order Food!
+            </Button>
+          )
+      } else {
+        return <Button disabled={true} style={{width:'100%', height:'100%', fontSize:'20px'}}>
+        {`Items remaining: ${orders} / 14`}</Button>
+      }
+    }
+
+
 
     return (
         <div >
+          <OrderExplainModal showExplaination={showExplaination} setShowExplaination={setShowExplaination}/>
             <NavBar />
+            <section class='view-screen'>
 
+            
                 <div class="row" style={{height:'100%', width:'97%', margin:'auto'}}>
                   <div class="col-8" style={{backgroundColor:'white', height:'100%'}}>
                   <div className='shadow p-3 mb-5 bg-white rounded'>
@@ -98,7 +154,15 @@ const OrderFood = () => {
 
                   <div class="col-4" style={{backgroundColor:'white'}}>
                     <div class="shadow p-3 mb-5 bg-white rounded">
-                      <h1> Preview order </h1>
+                      <div class='row'>
+                        <div class='col'>
+                          <h1> Preview order </h1>
+                        </div>
+
+                        <div class='col'>
+                          <OrderComplete />
+                        </div>
+                      </div>
                       <hr />
                       <br />
                       <PreviewOrder
@@ -109,7 +173,9 @@ const OrderFood = () => {
                     </div>
                   </div>
                 </div>
-            <FooterPage />
+              </section>
+
+              <FooterPage style={{marginTop:'500px'}}/>
 
         </div>
     );
