@@ -14,9 +14,142 @@ import Busy from '../assets/img/busy.png'
 import Cooking from '../assets/img/cooking.PNG'
 import Delivery from '../assets/img/delivery.PNG'
 import { useHistory } from 'react-router-dom';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const HomePage = () => {
     const history = useHistory();
+    const queryLarge = useMediaQuery('(min-width:1200px)');
+    const queryMid = useMediaQuery('(min-width:900px)');
+    const querySmall = useMediaQuery('(min-width:900px)');
+
+    const ShowStepsOrdering = () => {
+        if(queryLarge) {
+            return (
+                <div>
+                <div style={{display: 'flex', justifyContent: 'center'}}>
+                    <div class='row'>
+                        <div class='col'>
+                            <div class="d-flex justify-content-center" >
+                                <img src={PickFoods} alt='brouse' style={{width:'300px'}} />
+                            </div>
+                            
+                            <div style={{textAlign:'center'}}>
+
+                                <div style={{width:'300px'}}>
+                                    <h2> 
+                                    
+                                    Pick your restaurant and meals </h2>
+                                    <h6> 
+                                    Want to order from multiple restaurants and dishes for your plan? Order the most popular dishes from our partners.
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class='col' style={{textAlign:'center'}}>
+                            <div class="d-flex justify-content-center" >
+                                <img src={Schedule} alt='schedule' style={{width:'470px'}}/>
+                            </div>
+                            <div class="d-flex justify-content-center" >
+                                <h2 style={{ width:'300px'}}> Schedule date, time and frequency of meals </h2>
+                            </div>
+                            <div class="d-flex justify-content-center" >
+                            <h6 style={{ width:'300px'}}> 
+                                Mix and match the days you'd like to have your preferred meals!
+                            </h6>
+                            </div>
+
+                        </div>
+
+                        <div class='col' style={{textAlign:'center'}}>
+                            <img src={GetOrder}  alt='picup' style={{width:'580px'}}/>
+                            <h2 style={{ top:'60%', transform: 'translate(57%, 10%)', width:'300px'}}> Get your order </h2>
+                            <p style={{ top:'60%', transform: 'translate(57%, 10%)', width:'300px'}}> 
+                                We'll shoot you a text reminding you of your order, and you'll get to enjoy your meals with no worry.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <br/><br/><br/><br/><br/><br/>
+                <div class='d-flex justify-content-center'>
+                    <Button id='notified-btn' style={{borderColor:'black', marginBottom:'1000px'}}> {'Secure your spot on our wait list'} </Button>
+                </div>
+                </div>
+            )
+        } else {
+            return (
+                <div>
+
+                    <div class='row'>
+                        <div class='col'>
+                            <div class="d-flex justify-content-center" >
+                                <img src={PickFoods} alt='brouse' style={{width:'300px'}} />
+                            </div>
+                        </div>
+                        <div class='col'>
+                            <div class="d-flex justify-content-center" >
+
+                                <div style={{width:'300px'}}>
+                                    <h2> 
+                                    
+                                    Pick your restaurant and meals </h2>
+                                    <h6> 
+                                    Want to order from multiple restaurants and dishes for your plan? Order the most popular dishes from our partners.
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+
+                    <br /><br /><br /><br />
+
+
+                    <div class='row'>
+                        <div class='col'>
+                        <img src={Schedule} alt='schedule' style={{width:'470px'}}/>
+                        </div>
+                        <div class='col'>
+                            <div class="d-flex justify-content-center" >
+                                <h2 style={{ width:'300px'}}> Schedule date, time and frequency of meals </h2>
+                            </div>
+                            <div class="d-flex justify-content-center" >
+                            <h6 style={{ width:'300px'}}> 
+                                Mix and match the days you'd like to have your preferred meals!
+                            </h6>
+                            </div>
+                        </div>  
+                    </div>
+
+
+
+                    <div class='row'>
+                        <div class='col'>
+                        <img src={GetOrder}  alt='picup' style={{width:'580px'}}/>
+                        </div>
+                        <div class='col'>
+                            <div class="d-flex justify-content-center" >
+                                <h2 style={{ width:'300px'}}> Get your order </h2>
+                            </div>
+                            <div class="d-flex justify-content-center" >
+                            <h6 style={{ width:'300px'}}> 
+                            We'll shoot you a text reminding you of your order, and you'll get to enjoy your meals with no worry.
+                            </h6>
+                            </div>
+                        </div>  
+                    </div>
+                    <div id='container'>
+                        <Button id='notified-btn' style={{borderColor:'black', marginBottom:'1000px'}}> {'Secure your spot on our wait list'} </Button>
+                    </div>
+                    <br /><br /><br /><br /><br /><br />
+
+
+
+
+                </div>
+            )
+        } 
+    }
+
     return (
         <div>
             <NavBar/>
@@ -46,7 +179,8 @@ const HomePage = () => {
             </section>
 
             <section class='view-screen' id='second-view' data-aos="fade-up">    
-                <Row>
+            <div class="d-flex justify-content-center" style={{marginBottom:'100px'}}>
+                
                     <h1 style={{
                         position: 'absolute', 
                         left: '50%', 
@@ -61,62 +195,15 @@ const HomePage = () => {
                         color:"rgb(0, 0, 0, 0.8)",
                         transform: 'translate(-50%, -100%)'
                     }}> Just how ordering your food should be </p>
-                </Row>
+                </div>
 
-                <div style={{display: 'flex', justifyContent: 'center'}}>
+
+
+                <ShowStepsOrdering />
+
+
 
                 
-                <Row style={{  transform: 'translate(0%, 20%)', paddingTop:'0%', textAlign:'center', width:'80%'}} >
-
-                        <Col >
-                            <img src={PickFoods} alt='brouse'
-                                style={{width:'300px'}}
-                            />
-                            
-                            
-                            <div style={{textAlign:'center'}}>
-
-                                <div style={{width:'300px'}}>
-                                    <h2 
-                                    style={{ top:'60%', transform: 'translate(47%, 10%)' ,width:'300px'}} 
-                                    > 
-                                    
-                                    Pick your restaurant and meals </h2>
-                                    <h6 
-                                    style={{ top:'60%', transform: 'translate(47%, 10%)', width:'300px'}}
-                                    > 
-                                    Want to order from multiple restaurants and dishes for your plan? Order the most popular dishes from our partners.
-                                    </h6>
-                                </div>
-                            </div>
-
-                        </Col>
-                        <Col 
-                        // style={{ top:'60%', transform: 'translate(30%, 0%)'}}
-                        > 
-                            <img src={Schedule} alt='schedule' style={{width:'470px'}}/>
-                            <h2 style={{ top:'60%', transform: 'translate(45%, 10%)', width:'300px'}}> Schedule date, time and frequency of meals </h2>
-                            <h6 style={{ top:'60%', transform: 'translate(45%, 10%)', width:'300px'}}> 
-                                Mix and match the days you'd like to have your preferred meals!
-                            </h6>
-                        </Col>
-                        <Col 
-                            // style={{ top:'60%', transform: 'translate(20%, 0%)', width:'50px'}}
-                            > 
-                            <img src={GetOrder}  alt='picup' style={{width:'580px'}}/>
-                            <h2 style={{ top:'60%', transform: 'translate(57%, 10%)', width:'300px'}}> Get your order </h2>
-                            <p style={{ top:'60%', transform: 'translate(57%, 10%)', width:'300px'}}> 
-                                We'll shoot you a text reminding you of your order, and you'll get to enjoy your meals with no worry.
-                            </p>
-                        </Col>
-                </Row>
-                </div>
-
-
-
-                <div id='container'>
-                    <Button id='notified-btn' style={{marginTop:'50px', borderColor:'black'}}> {'Secure your spot on our wait list'} </Button>
-                </div>
             </section>
 
             <section 
@@ -143,7 +230,7 @@ const HomePage = () => {
                             fontSize:'60px'
                         }}
                         >
-                        You're busy, we know that
+                        {/* You're busy, we know that */}
                     </h1>
 
                     <h2
@@ -155,77 +242,35 @@ const HomePage = () => {
                             width:'30%'
                         }}
                         >
-                        More time to focus on the important things by eliminating groceries.
+                        {/* More time to focus on the important things by eliminating groceries. */}
                     </h2>
-                    <img src={Busy}  alt='schedule' style={{
-                        left: '50%',
-                        width:'100%',
-                        height: '110%'
-                    }}/>
+                    <div class="d-flex justify-content-center">
+                        <img src={Busy}  alt='schedule' style={{
+                            // left: '50%',
+                            width:'90%',
+                            height: '90%'
+                        }}/>
+                    </div>
 
                     </section>
                 </div>
 
 
-                <Row>
-                    <Col>
+                <div class="d-flex justify-content-center">
                     <img src={Cooking}  alt='schedule' style={{
-                        paddingLeft: '10%',
+                        paddingLeft: '0%',
+                        width:'90%'
                     }}/>
-                    </Col>
-                    <Col>
-                        <h1
-                            style={{ marginTop:'200px', marginLeft: '100px', fontSize:'60px'}}
-                        >
-                            Sit back and relax
-                        </h1>
-
-                        <h2 style={{ marginLeft: '100px'}}>
-                            Let us worry about cooking, your own personal chef
-                        </h2>
-                    </Col>
-                </Row>
-
-
-
-
-                <div style={{
-                    margin:'auto',
-                    marginTop:'-130px'
-                }}>
-                    <section>
-
-                    <h1
-                        style={{
-                            color:'white',
-                            position:'absolute',
-                            top:'420%',
-                            left:'10%',
-                            fontSize:'60px'
-                        }}
-                        >
-                        We'll have your food ready
-                    </h1>
-
-                    <h2
-                        style={{
-                            color:'white',
-                            position:'absolute',
-                            top:'428%',
-                            left:'10%',
-                            width:'30%'
-                        }}
-                        >
-                        We know when you want and how you want it
-                    </h2>
-                    <img src={Delivery}  alt='schedule' style={{
-                        left: '50%',
-                        width:'100%',
-                        height: '110%'
-                    }}/>
-
-                    </section>
                 </div>
+
+
+                <div class="d-flex justify-content-center">
+                    <img src={Delivery}  alt='schedule' style={{
+                        width:'90%',
+                        height: '90%'
+                    }}/>
+                </div>
+
                 
 
             </section>

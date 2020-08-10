@@ -27,23 +27,18 @@ const OrderExplainModal = (props) => {
           onClose={handleClose}
           
         >
-        <div style={{backgroundColor:'#3babdba0'}}>
-          <h1 style={{ padding:'20px', fontSize:'20px', color:'white'}}>
-              Prepare your meal plan with 3 easy steps!
-          </h1>
-
-
-
-
-
+        <div>
             <div class='row' style={{width:'90%', margin:'auto'}}>
+                <h1 style={{ padding:'20px', width:'100%', fontSize:'20px', color:'black', margin:'auto'}}>
+                    Prepare your meal plan with 3 easy steps!
+                </h1>
 
 
                 <div class='col'>
 
                     {/* <img class="card-img-top" src="..." alt="Card image cap"> */}
                     <div class="card-body" style={{border:'none'}}>
-                        <h5 class="card-title" style={{color: '#3babdb',  color:'white'}}> Step 1</h5>
+                        <h5 class="card-title" style={{color: '#3babdb',  color:'#3babdba0'}}> Step 1</h5>
                         <p class="card-text">
                             Browse restaurants and meals.
                         </p>
@@ -57,7 +52,7 @@ const OrderExplainModal = (props) => {
                     <div style={{border:'none'}}>
                     {/* <img class="card-img-top" src="..." alt="Card image cap"> */}
                     <div class="card-body">
-                        <h5 class="card-title" style={{color: '#3babdb',  color:'white'}}>Step 2</h5>
+                        <h5 class="card-title" style={{color: '#3babdb',  color:'#3babdba0'}}>Step 2</h5>
                         <p class="card-text">
                             Select which meal you would like to eat that day.
                         </p>
@@ -71,7 +66,7 @@ const OrderExplainModal = (props) => {
                     <div style={{border:'none'}}>
                     {/* <img class="card-img-top" src="..." alt="Card image cap"> */}
                     <div class="card-body">
-                        <h5 class="card-title" style={{color: '#3babdb',  color:'white'}}>Step 3</h5>
+                        <h5 class="card-title" style={{color: '#3babdb',  color:'#3babdba0'}}>Step 3</h5>
                         <p class="card-text">
                             Preview and confirm your orders!
                         </p>
@@ -88,7 +83,7 @@ const OrderExplainModal = (props) => {
 
 
 
-          <DialogActions style={{backgroundColor:'#3babdba0'}}>
+          <DialogActions style={{backgroundColor:'white'}}>
 
             <Button
                 onClick={handleClose} 
@@ -98,6 +93,7 @@ const OrderExplainModal = (props) => {
                     height:'100%',
                     fontSize:'18px',
                     margin:'auto',
+                    color:'#3babdb',
                     borderColor:'#3babdb00',
                     backgroundColor:'#3babdb00'
                 }}

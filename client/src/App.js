@@ -17,7 +17,6 @@ const App = () => {
           <Route path='/register-restaurant' component={RegisterRestaurant}/>
           <Route path='/restaurant/get-started/:loginEmail' name='loginEmail' component={RestaurantGetStarted}/>
           <Route path='/register-partner' component={DeliveryDriverRegister}/>
-
           <Route path='/order-food' component={OrderFood}/>
         
         </Switch>
