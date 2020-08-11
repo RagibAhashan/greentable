@@ -28,9 +28,9 @@ const FooterPage = () => {
 
       </MDBContainer>
       <div className="footer-copyright text-center py-3">
-        <h2 style={{color:'white'}}> SevenMeal </h2>
+        <h2 style={{color:'white'}}> Nasta </h2>
         <MDBContainer fluid style={{color:'white'}}>
-          &copy; {new Date().getFullYear()} Copyright: <a href="/" style={{color:'white'}}> SevenMeal.com </a>
+          &copy; {new Date().getFullYear()} Copyright: <a href="/" style={{color:'white'}}> Nasta.com </a>
         </MDBContainer>
       </div>
     </MDBFooter>

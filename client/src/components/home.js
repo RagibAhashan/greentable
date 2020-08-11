@@ -30,7 +30,7 @@ const HomePage = () => {
                     <div class='row'>
                         <div class='col'>
                             <div class="d-flex justify-content-center" >
-                                <img src={PickFoods} alt='brouse' style={{width:'300px'}} />
+                                <img src={PickFoods} alt='brouse' style={{width:'300px', marginLeft:'-170px'}} />
                             </div>
                             
                             <div style={{textAlign:'center'}}>
@@ -69,10 +69,6 @@ const HomePage = () => {
                             </p>
                         </div>
                     </div>
-                </div>
-                <br/><br/><br/><br/><br/><br/>
-                <div class='d-flex justify-content-center'>
-                    <Button id='notified-btn' style={{borderColor:'black', marginBottom:'1000px'}}> {'Secure your spot on our wait list'} </Button>
                 </div>
                 </div>
             )
@@ -137,10 +133,6 @@ const HomePage = () => {
                             </div>
                         </div>  
                     </div>
-                    <div id='container'>
-                        <Button id='notified-btn' style={{borderColor:'black', marginBottom:'1000px'}}> {'Secure your spot on our wait list'} </Button>
-                    </div>
-                    <br /><br /><br /><br /><br /><br />
 
 
 
@@ -207,11 +199,10 @@ const HomePage = () => {
             </section>
 
             <section 
-            // class='view-screen'
-            style={{
-                // backgroundColor:'grey',
+                style={{
                 marginBottom:'300px',
-                marginTop:'-200px'}}
+                marginTop:`${queryLarge ? '-500px' : ''}`
+            }}
             >    
                 
 
@@ -230,7 +221,6 @@ const HomePage = () => {
                             fontSize:'60px'
                         }}
                         >
-                        {/* You're busy, we know that */}
                     </h1>
 
                     <h2
@@ -242,13 +232,10 @@ const HomePage = () => {
                             width:'30%'
                         }}
                         >
-                        {/* More time to focus on the important things by eliminating groceries. */}
                     </h2>
                     <div class="d-flex justify-content-center">
                         <img src={Busy}  alt='schedule' style={{
-                            // left: '50%',
-                            width:'90%',
-                            height: '90%'
+                            width:'60%'
                         }}/>
                     </div>
 
@@ -259,14 +246,14 @@ const HomePage = () => {
                 <div class="d-flex justify-content-center">
                     <img src={Cooking}  alt='schedule' style={{
                         paddingLeft: '0%',
-                        width:'90%'
+                        width:'60%'
                     }}/>
                 </div>
 
 
                 <div class="d-flex justify-content-center">
                     <img src={Delivery}  alt='schedule' style={{
-                        width:'90%',
+                        width:'60%',
                         height: '90%'
                     }}/>
                 </div>
