@@ -20,6 +20,12 @@
     background-color: #ffffff;
 }
 
+#border {
+    width: 90%;
+    margin: auto;
+    border-bottom: 2px solid rgba(255, 62, 152, 0.438);
+}
+
 .nav__links {
     margin-top: 15px;
     list-style: none;
@@ -77,42 +83,44 @@
     text-decoration: none;
 }
 
-#sign-in:hover {
-    background-color: rgb(109, 0, 0);
-    transition: all 0.2s ease 0s;
-}
-
 #sign-in {
     padding: 9px 25px;
     font-family: 'Montserrat', sans-serif;
-    background-color: #ff6aa2;
+    background-color: #5d3cef;
     font-weight: 500;
-    color: #edf0f1;
-    border: none;
-    text-decoration: none;
+    color: #ffffff;
+    border-style: solid;
+    border-color: #5d3cef;
     font-size: 21px;
-    border-radius: 5px;
-    margin-left: 20px;
+    border-radius: 0px;
+    margin-left: 40px;
     cursor: pointer;
+    transition: all 0.2s ease 0s;
+}
+
+#sign-in:hover {
+    background-color: rgb(255, 255, 255);
+    color:  #5d3cef;
     transition: all 0.2s ease 0s;
 }
 
 #reg-partner {
     padding: 9px 25px;
     font-family: 'Montserrat', sans-serif;
-    background-color: rgb(0, 204, 255);
+    background-color: #ff5649;
     font-weight: 500;
-    color: #edf0f1;
-    border: none;
-    text-decoration: none;
+    color: #ffffff;
+    border-style: solid;
+    border-color: #ff5649;
     font-size: 21px;
-    border-radius: 5px;
+    border-radius: 0px;
     margin-left: 40px;
     cursor: pointer;
-    transition: all 0.5s ease 0s;
+    transition: all 0.2s ease 0s;
 }
 
 #reg-partner:hover {
-    background-color: rgb(101, 224, 255);
-    transition: all 0.5s ease 0s;
+    background-color: rgb(255, 255, 255);
+    color:  #ff5649;
+    transition: all 0.2s ease 0s;
 }

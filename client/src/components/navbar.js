@@ -4,19 +4,23 @@ import logo from '../assets/img/logo.PNG'
 
 const NavBar = () => {
     return (
-        <div class='navBar'>
-            <img class='logo' src={logo} alt='logo'/ >
-            <nav>
-                <ul class='nav__links'>
-                    <li class='tab'><a href='/register-restaurant' class='tab_link'> For Restaurants </a></li>
-                </ul>
-            </nav>
-            <a href="/register-partner">
-                <button id='reg-partner'> Sign up to deliver </button>
-            </a>
-            <a href="/login">
-                <button id='sign-in'> Sign in </button>
-            </a>
+        <div>
+            <div class='navBar'>
+                {/* <img class='logo' src={logo} alt='logo'/ > */}
+
+                <div class='logo'>
+                    <h1 style={{fontSize:'90px', marginBottom:'0px'}}> Nasta </h1>
+                </div>
+
+                <a href="/register-restaurant">
+                    <button id='reg-partner'> For Restaurants </button>
+                </a>
+                <a href="/login">
+                    <button id='sign-in'> Sign in </button>
+                </a>
+
+            </div>
+            <div id='border' />
         </div>
     )
 }

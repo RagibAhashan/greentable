@@ -74,17 +74,26 @@
 }
 
 #order-now {
-  background-color: #ff6aa2;
-  border-color: white;
+  padding: 9px 25px;
+  height: 70px;
   width: 200px;
-  height: 60px;
-  transition: all 0.5s ease 0s;
-  transform: translateY(0%);
+  font-family: 'Montserrat', sans-serif;
+  background-color: #e8ba5a;
+  font-weight: 500;
+  color: #ffffff;
+  border-style: solid;
+  border-color: #e8ba5a;
+  font-size: 21px;
+  border-radius: 0px;
+  margin-left: 40px;
+  cursor: pointer;
+  transition: all 0.2s ease 0s;
 }
 
 #order-now:hover {
-  transition: all 0.5s ease 0s;
-  transform: translateY(-3%);
+  background-color: rgb(255, 255, 255);
+  color:  #e8ba5a;
+  transition: all 0.2s ease 0s;
 }
 
 #container {
