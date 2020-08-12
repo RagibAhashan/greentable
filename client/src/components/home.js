@@ -9,6 +9,8 @@ import FooterPage from '../components/footerComponent'
 import GetOrder from '../assets/img/getorder.png';
 import PickFoods from '../assets/img/pickFoods.png';
 import Schedule from '../assets/img/schedule.png';
+import FirstImage from '../assets/img/landingPage.jpg'
+
 
 import Busy from '../assets/img/busy.png'
 import Cooking from '../assets/img/cooking.PNG'
@@ -36,9 +38,9 @@ const HomePage = () => {
                             <div style={{textAlign:'center'}}>
 
                                 <div style={{width:'300px'}}>
-                                    <h2> 
+                                    <h2 > 
                                     
-                                    Pick your restaurant and meals </h2>
+                                        Pick your restaurant and meals </h2>
                                     <h6> 
                                     Want to order from multiple restaurants and dishes for your plan? Order the most popular dishes from our partners.
                                     </h6>
@@ -86,9 +88,9 @@ const HomePage = () => {
                             <div class="d-flex justify-content-center" >
 
                                 <div style={{width:'300px'}}>
-                                    <h2> 
-                                    
-                                    Pick your restaurant and meals </h2>
+                                    <h2 > 
+                                        Pick your restaurant and meals 
+                                    </h2>
                                     <h6> 
                                     Want to order from multiple restaurants and dishes for your plan? Order the most popular dishes from our partners.
                                     </h6>
@@ -144,10 +146,18 @@ const HomePage = () => {
 
     return (
         <div>
-            <NavBar/>
-            <section class='view-screen'>    
-                <Row>
-                    <Col>
+
+            
+            <div style={{
+                backgroundImage: `linear-gradient(to right, rgba(0,0,0, 0.5) 10%, rgba(0,0,0, 0) 100%), url(${FirstImage})`,
+                backgroundRepeat: 'no-repeat',
+                height:'100%'
+                }}>
+            <NavBar />
+            <section class='view-screen' >    
+
+                    <div class='first-message'>
+
                         <h1 class='grand-message'>
                             {'Meal plans from your favorite restaurant.'}
                         </h1>
@@ -155,39 +165,44 @@ const HomePage = () => {
                         <h4 id='low-message'>
                             {'We partner with your favorite restaurants in order to facilitate subscription based orders'}
                         </h4>
+                    </div>
                         
-                        <div id='container'>
-                            <Button 
-                                id='order-now'
-                                onClick={()=>{history.push("/order-food");}}
-                            > {'Order now'} </Button>
-                        </div>
 
-                    </Col>
-                    <Col> 
-                        <img src={LandingPageImage} alt='cow' class='front-image'/>
-                    </Col>
-                </Row>
+                        <Button 
+                            id='order-now'
+                            onClick={()=>{history.push("/order-food");}}
+                        > {'Order now'} </Button>
+
+
+                {/* <div class="d-flex justify-content-center" >
+                    <h1 class='grand-message' style={{position:'absolute'}}>
+                        {'Meal plans from your favorite restaurant.'}
+                    </h1>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <img src={LandingPageImage} alt='cow' style={{marginTop:'10%', marginRight:'25%', width:'800px'}}/>
+                </div> */}
             </section>
-
+            </div>
             <section class='view-screen' id='second-view' data-aos="fade-up">    
-            <div class="d-flex justify-content-center" style={{marginBottom:'100px'}}>
+            <div class="d-flex justify-content-center" style={{marginBottom:'8px'}}>
                 
                     <h1 style={{
-                        position: 'absolute', 
-                        left: '50%', 
-                        top: '0%',
-                        transform: 'translate(-50%, -50%)'
+                        // position: 'absolute', 
+                        // left: '50%', 
+                        // top: '0%',
+                        // transform: 'translate(-50%, 0%)'
                     }}> It's simple. </h1>
-
+            </div>
+            <div class="d-flex justify-content-center" style={{marginBottom:'100px'}}>
                     <p style={{
-                        position: 'absolute', 
-                        left: '50%', 
+                        // position: 'absolute', 
+                        // left: '50%', 
                         // top: '10%',
-                        color:"rgb(0, 0, 0, 0.8)",
-                        transform: 'translate(-50%, -100%)'
+                        // color:"rgb(0, 0, 0, 0.8)",
+                        // transform: 'translate(-50%, -100%)'
                     }}> Just how ordering your food should be </p>
-                </div>
+            </div>
 
 
 

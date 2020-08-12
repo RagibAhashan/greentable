@@ -1,10 +1,9 @@
 import React from 'react';
 import './navbar.css'
-import logo from '../assets/img/logo.PNG'
 
 const NavBar = () => {
     return (
-        <div>
+        <div class='logo-trigger'>
             <div class='navBar'>
                 {/* <img class='logo' src={logo} alt='logo'/ > */}
 

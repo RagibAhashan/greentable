@@ -24,8 +24,8 @@
     box-sizing: border-box;
 }
 
-#second-view  h1 {
-    text-align: center;
+#second-view {
+    background-repeat: no-repeat;
 }
 
 #foods-image {
@@ -36,27 +36,29 @@
 #low-message {
     font-family: 'Montserrat', sans-serif;
     font-size: 25px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-left: 25%;
+    color:white;
+    padding-left: 1%;
     padding-top: 0%;
     padding-right: 5%;
     animation: 1s ease-out 0s 1 slideInFromRight;
     transition: all 0.5s ease 0s;
 }
 
+.first-message {
+  position: absolute;
+  top: 20%;
+}
+
 .grand-message{
     font-family: 'Montserrat', sans-serif;
+    color: white;
     font-size: 100px;
     font-weight: 900;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-left: 25%;
-    padding-top:5%;
+    width: 70%;
+    padding-left: 1%;
+    padding-top:0%;
     padding-right: 0%;
-    animation: 1s ease-out 0s 1 slideInFromLeft;
+    animation: 1s ease-out 0s 1 slideInFromRight;
     transition: all 0.5s ease 0s;
 }
 
@@ -74,24 +76,27 @@
 }
 
 #order-now {
-  padding: 9px 25px;
+  /* padding: 9px 25px; */
   height: 70px;
-  width: 200px;
+  width: 500px;
+  position: absolute;
+  top: 50%;
   font-family: 'Montserrat', sans-serif;
   background-color: #e8ba5a;
   font-weight: 500;
   color: #ffffff;
   border-style: solid;
   border-color: #e8ba5a;
-  font-size: 21px;
+  font-size: 25px;
   border-radius: 0px;
   margin-left: 40px;
   cursor: pointer;
+  border-width: 3px;
   transition: all 0.2s ease 0s;
 }
 
 #order-now:hover {
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.899);
   color:  #e8ba5a;
   transition: all 0.2s ease 0s;
 }

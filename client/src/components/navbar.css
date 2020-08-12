@@ -17,13 +17,36 @@
     justify-content: flex-end;
     align-items: center;
     padding: 30px 10%;
+    background-color: #ffffff23;
+    transition: all 0.5s ease 0s;
+}
+
+.logo-trigger{
+    color: white;
+}
+
+.logo-trigger:hover{
+    color: black;
+}
+
+div > .logo:hover{
+    color: black;
+}
+
+.navBar:hover {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 30px 10%;
     background-color: #ffffff;
+    transition: all 0.5s ease 0s;
+
 }
 
 #border {
     width: 90%;
     margin: auto;
-    border-bottom: 2px solid rgba(255, 62, 152, 0.438);
+    border-bottom: 2px solid #ff5549;
 }
 
 .nav__links {
@@ -86,11 +109,11 @@
 #sign-in {
     padding: 9px 25px;
     font-family: 'Montserrat', sans-serif;
-    background-color: #5d3cef;
+    background-color: #000000;
     font-weight: 500;
     color: #ffffff;
     border-style: solid;
-    border-color: #5d3cef;
+    border-color: #000000;
     font-size: 21px;
     border-radius: 0px;
     margin-left: 40px;
@@ -100,7 +123,7 @@
 
 #sign-in:hover {
     background-color: rgb(255, 255, 255);
-    color:  #5d3cef;
+    color:  #000000;
     transition: all 0.2s ease 0s;
 }
 
@@ -122,5 +145,6 @@
 #reg-partner:hover {
     background-color: rgb(255, 255, 255);
     color:  #ff5649;
+    border-color: #ff5649;
     transition: all 0.2s ease 0s;
 }
