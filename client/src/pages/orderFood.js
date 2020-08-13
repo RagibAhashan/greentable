@@ -118,7 +118,7 @@ const OrderFood = () => {
     return (
         <div >
           <OrderExplainModal showExplaination={showExplaination} setShowExplaination={setShowExplaination}/>
-            <NavBar />
+            <NavBar homePage={true} />
             <section class='view-screen'>
             { !confirmWeekOrders ?
               <div class="row" style={{height:'100%', width:'97%', margin:'auto'}}>

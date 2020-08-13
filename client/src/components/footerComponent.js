@@ -5,35 +5,43 @@ import './footerPage.css'
 
 const FooterPage = () => {
   return (
-    <MDBFooter color="blue" id='footer'>
-      <MDBContainer fluid className="text-center text-md-left" >
-        <MDBRow>
-          <MDBCol md="3">
-          
-          </MDBCol>
-          <MDBCol md="2" style={{color:'#250411', fontSize:'30px', marginTop:'30px' }}>
-            Home
-          </MDBCol>
+      
+      <div class='row' style={{
+        backgroundColor:'black',
+        paddingBottom:'300px',
+        paddingTop:'300px',
+        color:'white'
+      }}
+      >
+        <div class='col'> 
+          <div class="d-flex justify-content-center">
+            <h1 style={{fontSize:'80px'}}> Nasta </h1> 
+          </div>
+        </div>
 
-          <MDBCol md="2" style={{color:'#250411', fontSize:'30px', marginTop:'30px' }}>
-            Terms of Service
-          </MDBCol>
+        <div class='col'> 
+          <div class="d-flex justify-content-center">
+            <a href='/' style={{fontSize:'20px', color:'white', padding:'10px'}}> FAQ </a>
+          </div>
+          <div class="d-flex justify-content-center">
+            <a href='/' style={{fontSize:'20px', color:'white', padding:'10px'}}> Contact us </a>
+          </div>
+          <div class="d-flex justify-content-center">
+            <a href='/' style={{fontSize:'20px', color:'white', padding:'10px'}}> About us </a>
+          </div>
+          <div class="d-flex justify-content-center">
+            <a href='/' style={{fontSize:'20px', color:'white', padding:'10px'}}> Terms and Service </a>
+          </div>
+        </div>
 
-          <MDBCol md="1" style={{color:'#250411', fontSize:'30px', marginTop:'30px' }}>
-            Contact us
-          </MDBCol>
-          
-        </MDBRow>
+        <div class='col'> 
+          <div class="d-flex justify-content-left">
+            Placeholder for social media links 
+          </div>
+        </div>
 
 
-      </MDBContainer>
-      <div className="footer-copyright text-center py-3">
-        <h2 style={{color:'white'}}> Nasta </h2>
-        <MDBContainer fluid style={{color:'white'}}>
-          &copy; {new Date().getFullYear()} Copyright: <a href="/" style={{color:'white'}}> Nasta.com </a>
-        </MDBContainer>
       </div>
-    </MDBFooter>
   );
 }
 
