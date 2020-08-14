@@ -20,19 +20,19 @@ export const requestRegistrationEmail = async (req: Request, res: Response) => {
     const db = new Firestore();
 
     try {
-        const userDocRef = await db.collection("restaurants").doc(email).get();
+        const userDocRef = await db.collection("users").doc(email).get();
 
         if (userDocRef.exists) {
             return res.status(404).send({
-                message: 'This email already exists'
+                message: 'This account already exists'
             });
         } else {
             const user_id = uuidv4();
-            await db.collection("restaurants-registration").doc(user_id).set(req.body);
+            await db.collection("user-registration").doc(user_id).set(req.body);
             await EmailService.sendRegistrationConfirmationEmail(email, name, user_id);
 
             res.status(201).send({
-                message: 'Restaurant was added.'
+                message: 'User email confirmation was sent.'
             });
         }
             
@@ -52,7 +52,7 @@ export const getConfimationUser = async (req: Request, res: Response) => {
     const db = new Firestore();
 
     try {
-        const userDocRef = await db.collection("restaurants-registration").doc(user_id).get();
+        const userDocRef = await db.collection("user-registration").doc(user_id).get();
 
         if (!userDocRef.exists) {
             return res.status(404).send({
@@ -81,7 +81,7 @@ export const signUpUser = async (req: Request, res: Response) => {
     const password = req.body.password;
 
     try {
-        const userDocRef = await db.collection("restaurants-registration").doc(user_id).get();
+        const userDocRef = await db.collection("user-registration").doc(user_id).get();
 
         if (!userDocRef.exists) {
             return res.status(404).send({
@@ -89,11 +89,11 @@ export const signUpUser = async (req: Request, res: Response) => {
             });
         } else {
 
-            await db.collection("restaurants-registration").doc(user_id).delete();
-            const user_data: any = userDocRef.data()
+            await db.collection("user-registration").doc(user_id).delete();
+            const user_data: any = userDocRef.data();
             user_data['password'] = password;
 
-            await db.collection("restaurants").doc(user_data.email).set(user_data)
+            await db.collection("users").doc(user_data.email).set(user_data)
 
             return res.status(200).send({
                 message: 'User has been activated!'
