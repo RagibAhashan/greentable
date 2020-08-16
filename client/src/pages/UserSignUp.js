@@ -15,20 +15,10 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { TextValidator} from 'react-material-ui-form-validator';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="/">
-        GreenTable
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -50,18 +40,36 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-const LoginPage = () => {
+const UserSignUp = () => {
 
     const history = useHistory();
     const classes = useStyles();
     const [email, setEmail] = useState('');
+    
     const [password, setPassword] = useState('');
+    const [confirmPass, setConfirmPass] = useState('');
+
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
+
   
-    const signIn = () => {
-      console.log(email, password, firstName, lastName, phoneNumber)
+    const signUp = async () => {
+        console.log(email, password, firstName, lastName, phoneNumber);
+        const dataPackage = {
+            "email": email,
+            "password": password,
+            "firstName": firstName,
+            "lastName": lastName,
+            "phoneNumber": phoneNumber,
+        }
+        console.log(dataPackage)
+        const data = JSON.parse(JSON.stringify(dataPackage));
+        try {
+            await axios.post('http://localhost:4000/user/', data);
+        } catch (error) {
+            console.error(error);
+        }
     }
 
 
@@ -77,7 +85,7 @@ const LoginPage = () => {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Sign up
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
@@ -90,9 +98,48 @@ const LoginPage = () => {
             name="email"
             autoComplete="email"
             autoFocus
+            type='email'
             onChange={(ev) => {setEmail(ev.target.value)}}
           />
 
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="First name"
+            name="firstName"
+            autoFocus
+            onChange={(ev) => {setFirstName(ev.target.value)}}
+          />
+
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Last name"
+            name="lastName"
+            autoComplete="email"
+            autoFocus
+            onChange={(ev) => {setLastName(ev.target.value)}}
+          />
+
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            type='number'
+            fullWidth
+            id="email"
+            label="Phone number"
+            name="email"
+            autoComplete="email"
+            autoFocus
+            onChange={(ev) => {setPhoneNumber(ev.target.value)}}
+          />
 
           <TextField
             variant="outlined"
@@ -105,43 +152,33 @@ const LoginPage = () => {
             id="password"
             autoComplete="current-password"
             onChange={(ev) => {setPassword(ev.target.value)}}
+          />
+
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Confirm password"
+            type="password"
+            id="password"
+            error={(password !== confirmPass)}
+            autoComplete="current-password"
+            onChange={(ev) => {setConfirmPass(ev.target.value)}}
             style={{marginBottom:'5%'}}
           />
           
           <Button
-            // type="submit"
             fullWidth
             variant="contained"
             color="primary"
-            // className={classes.submit}
-            onClick={()=>{ signIn() }}
+            disabled={!(email && password&&confirmPass&& firstName&& lastName&& phoneNumber) || (password !== confirmPass)}
+            onClick={async ()=>{ await signUp(); history.push('/') }}
           >
-            Sign In
+            Sign up
           </Button>
 
-          {/* <Button
-            // type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-            onClick={()=>{console.log(email, password)}}
-          >
-            Sign In with Google
-          </Button> */}
-          <br />
-          <Grid container>
-            <Grid item xs>
-              {/* <Link href="/forgot-password" variant="body2">
-                Forgot password?
-              </Link> */}
-            </Grid>
-            <Grid item>
-              <Link href="/sign-up-client" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
-          </Grid>
         </form>
       </div>
 
@@ -151,7 +188,7 @@ const LoginPage = () => {
       <div id='copyright'>
         {'Copyright © '}
         <Link color="inherit" href="/">
-          GreenTable
+          Nasta
         </Link>{' '}
         {new Date().getFullYear()}
         {'.'}
@@ -161,4 +198,4 @@ const LoginPage = () => {
     ) 
 }
 
-export default LoginPage;
+export default UserSignUp;

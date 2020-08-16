@@ -22,30 +22,34 @@ const RestaurantGetStarted = (props) => {
 
     const [formIncomplete, setFormIncomplete] = useState(false);
 
-    console.log(props.location.search.replace('?', ''))
+    // console.log(props.location.search.replace('?', ''))
 
 
     useEffect(() => {
 
         setUserID(props.location.search.replace('?', ''));
-        // if (!user_id) {
-            
-            console.log('user_id', user_id);
-            console.log('Get request....');
 
-            if (!dataFound) {
+        if (!dataFound) {
+            try {
+
                 axios.get(`http://localhost:4000/restaurant/sign-up-user/` + user_id)
                 .then((response)=>{
-                    console.log('response', response.data.user_info);
                     setUserData(response.data.user_info);
                     setDataFound(true);
-                })
+                    // console.log('response.data.user_info', response.status);
+                });
+            } catch(error) {
+                console.log('USER NOT FOUND!')
             }
 
+            // axios.get(`http://localhost:4000/user/sign-up-user/` + user_id)
+            // .then((response)=>{
+            //     setUserData(response.data.user_info);
+            //     setDataFound(true);
+            // });
+        }
 
-        // }
-
-        console.log('userData', userData)
+        // console.log('userData', userData)
 
 
         setFormIncomplete((passwordOne === passwordTwo) && passwordOne && passwordTwo);

@@ -240,7 +240,7 @@ const HomePage = () => {
                 </div>
             </div>
 
-            <section style={{backgroundColor:'#FAFAF6', paddingTop:'80px', paddingBottom:'80px'}}>
+            <section style={{backgroundColor:'#FAFAF6', paddingTop:'80px', paddingBottom:'12%'}}>
                 <div class='row'>
                     <div class='col' style={{marginLeft:'-5%'}}>
                         <div style={{marginLeft:'30%', width:'600px', paddingTop:'10%'}} data-aos='fade-right'>
@@ -251,22 +251,39 @@ const HomePage = () => {
                         </div>
                     </div>
                     <div class='col' data-aos='fade-left'>
-                        <img src={ImageTwo} alt='brouse' style={{width:'90%', position: 'absolute', marginRight:'10%'}} />
+                        <img src={ImageTwo} alt='brouse' style={{width:'90%', position: 'absolute', }} />
                     </div>
+                </div>
+            </section>
+
+
+            <section style={{backgroundColor:'#e8ba5a', paddingTop:'100px', paddingBottom:'100px'}}>
+                <div class='row'>
+                <div class='col' data-aos='fade-right'>
+                        <img src={ImageOne} alt='brouse' style={{width:'90%', position: 'absolute', paddingLeft:'5%'}} />
+                </div>
+                <div class='col' style={{marginLeft:'-5%', color: 'white'}} data-aos='fade-left'>
+                    <div style={{marginLeft:'30%', width:'600px', paddingTop:'10%'}} >
+                        <h1 style={{fontSize:'90px'}} > You're busy, we know that  </h1>
+                        <p style={{fontSize:'25px'}}> Let the pros handle the cooking. Order ahead. Save Time. Save Money </p>
+                        
+                    </div>
+                </div>
+                    
                 </div>
             </section>
 
 
 
 
-            <section style={{backgroundColor:'#e8ba5a', paddingTop:'70px', paddingBottom:'95px'}}>
+            {/* <section style={{backgroundColor:'#e8ba5a', paddingTop:'10%', paddingBottom:'12%'}}>
                 <div class='row'>
                     <div class='col' data-aos='fade-right'>
-                        <img src={ImageOne} alt='brouse' style={{width:'90%', position: 'absolute', marginLeft:'5%', paddingTop:'22%'}} />
+                        <img src={ImageOne} alt='brouse' style={{height:'800px', position: 'absolute', marginLeft:'5%', paddingTop:'15%'}} />
                     </div>
                     <div class='col' data-aos='fade-left'>
                         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-                        <div style={{marginRight:'30%', width:'700px', color:'white', top:'10%'}}>
+                        <div style={{marginRight:'30%', width:'700px', color:'white'}}>
                             <h1 style={{fontSize:'90px'}}> You're busy, we know that </h1>
                             <p style={{fontSize:'25px'}}> 
                                 Let the pros handle the cooking. Order ahead. Save Time. Save Money
@@ -275,7 +292,7 @@ const HomePage = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
 
 

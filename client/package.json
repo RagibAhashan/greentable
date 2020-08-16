@@ -20,6 +20,7 @@
     "react-hook-form": "^6.1.2",
     "react-hook-form-resolvers": "0.0.1",
     "react-hooks-useform": "^0.1.82",
+    "react-material-ui-form-validator": "^2.1.1",
     "react-modal": "^3.11.2",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
