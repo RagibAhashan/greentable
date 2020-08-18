@@ -4,6 +4,10 @@ import { validationResult } from "express-validator";
 import * as EmailService from '../services/email'
 import { v4 as uuidv4 } from "uuid";
 
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
+
 export const requestRegistrationEmail = async (req: Request, res: Response) => {
     const errors = validationResult(req);
 
@@ -15,6 +19,9 @@ export const requestRegistrationEmail = async (req: Request, res: Response) => {
 
     const email = req.body.email;
     const name  = req.body.firstName;
+
+    const user_info = req.body;
+    user_info.password = await bcrypt.hash(req.body.password, saltRounds);
 
 
     const db = new Firestore();
@@ -28,8 +35,8 @@ export const requestRegistrationEmail = async (req: Request, res: Response) => {
             });
         } else {
             const user_id = uuidv4();
-            await db.collection("user-registration").doc(user_id).set(req.body);
-            await EmailService.sendRegistrationConfirmationEmail(email, name, user_id);
+            await db.collection("user-registration").doc(user_id).set(user_info);
+            await EmailService.sendRegistrationConfirmationEmailUser(email, name, user_id);
 
             res.status(201).send({
                 message: 'User email confirmation was sent.'
@@ -52,15 +59,19 @@ export const getConfimationUser = async (req: Request, res: Response) => {
     const db = new Firestore();
 
     try {
-        const userDocRef = await db.collection("user-registration").doc(user_id).get();
+        const userDocRef: any = await db.collection("user-registration").doc(user_id).get();
 
         if (!userDocRef.exists) {
             return res.status(404).send({
                 message: 'User not found'
             });
         } else {
+
             return res.status(200).send({
-                user_info: userDocRef.data()
+                user_info: {
+                    firstName: userDocRef.data().firstName,
+                    email: userDocRef.data().email
+                }
             });
         }
 
@@ -74,14 +85,13 @@ export const getConfimationUser = async (req: Request, res: Response) => {
 }
 
 
-export const signUpUser = async (req: Request, res: Response) => {
-    
+export const deleteQueueUser = async (req: Request, res: Response) => {
+
     const db = new Firestore();
-    const user_id = req.body.user_id;
-    const password = req.body.password;
+    const USER_ID = req.params.id;
 
     try {
-        const userDocRef = await db.collection("user-registration").doc(user_id).get();
+        const userDocRef = await db.collection("user-registration").doc(USER_ID).get();
 
         if (!userDocRef.exists) {
             return res.status(404).send({
@@ -89,9 +99,9 @@ export const signUpUser = async (req: Request, res: Response) => {
             });
         } else {
 
-            await db.collection("user-registration").doc(user_id).delete();
-            const user_data: any = userDocRef.data();
-            user_data['password'] = password;
+            await db.collection("user-registration").doc(USER_ID).delete();
+            const user_data: any = userDocRef.data()
+
 
             await db.collection("users").doc(user_data.email).set(user_data)
 
@@ -107,4 +117,31 @@ export const signUpUser = async (req: Request, res: Response) => {
             error: 'internalError'
         });
     } 
+}
+
+export const signIn = async (req: Request, res: Response) => {
+    const email    = req.body.email;
+    const password = req.body.password;
+    
+    const db = new Firestore();
+    const docRef = await db.collection('users').doc(email).get();
+
+    if(!docRef.exists) {
+        return res.status(404).send({
+            message: 'Account does not exists.'
+        })
+    } else {
+        const data: any = docRef.data();
+        const hashPassword = data.password;
+        const match = await bcrypt.compare(password, hashPassword)
+        if (match) {
+            res.status(200).send({
+                passMatched: true
+            });
+        } else {
+            res.status(401).send({
+                passMatched: false
+            });
+        }
+    }
 }

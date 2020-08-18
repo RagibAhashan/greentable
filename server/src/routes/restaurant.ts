@@ -4,6 +4,10 @@ import { validationResult } from "express-validator";
 import * as EmailService from '../services/email'
 import { v4 as uuidv4 } from "uuid";
 
+
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 export const requestRegistrationEmail = async (req: Request, res: Response) => {
     const errors = validationResult(req);
 
@@ -78,7 +82,7 @@ export const signUpUser = async (req: Request, res: Response) => {
     
     const db = new Firestore();
     const user_id = req.body.user_id;
-    const password = req.body.password;
+    const password = await bcrypt.hash(req.body.password, saltRounds);
 
     try {
         const userDocRef = await db.collection("restaurants-registration").doc(user_id).get();
@@ -107,4 +111,25 @@ export const signUpUser = async (req: Request, res: Response) => {
             error: 'internalError'
         });
     } 
+}
+
+export const signIn = async (req: Request, res: Response) => {
+    const email    = req.body.email;
+    const password = req.body.password;
+    
+    const db = new Firestore();
+    const docRef = await db.collection('restaurants').doc(email).get();
+
+    if(!docRef.exists) {
+        return res.status(404).send({
+            message: 'Account does not exists.'
+        })
+    } else {
+        const data: any = docRef.data();
+        const hashPassword = data.password;
+        const match = await bcrypt.compare(password, hashPassword)
+        res.status(200).send({
+            passMatched: match
+        })
+    }
 }
