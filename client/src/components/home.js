@@ -161,7 +161,7 @@ const HomePage = () => {
                 backgroundRepeat: 'no-repeat',
                 height:'100%'
                 }}>
-            <NavBar />
+            <NavBar homePage={true} />
             <section class='view-screen' >    
 
                     <div class='first-message'>

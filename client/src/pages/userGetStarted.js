@@ -59,10 +59,11 @@ const UserGetStarted = (props) => {
             }
             console.log(dataPackage)
             const data = JSON.parse(JSON.stringify(dataPackage));
-            await axios.post('http://localhost:4000/user/sign-in-user/', data);
+            const response = await axios.post('http://localhost:4000/user/sign-in-user/', data);
+            console.log(response);
             history.push('/');
         } catch (error) {
-            window.alert('Wrong password!')
+            window.alert('Wrong Email or Password.')
             console.log(error);
         }
     }

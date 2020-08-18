@@ -49,7 +49,7 @@ const OrderFood = () => {
           orders++;
         }
       }
-      setOrderComplete(orders === 14)
+      setOrderComplete(orders === 6)
       console.log('Day', getDay(day), 'orders', orders)
 
 
@@ -118,7 +118,7 @@ const OrderFood = () => {
     return (
         <div >
           <OrderExplainModal showExplaination={showExplaination} setShowExplaination={setShowExplaination}/>
-            <NavBar homePage={true} />
+            <NavBar />
             <section class='view-screen'>
             { !confirmWeekOrders ?
               <div class="row" style={{height:'100%', width:'97%', margin:'auto'}}>
@@ -182,10 +182,11 @@ const OrderFood = () => {
               </div>
             
             : <ConfirmOrders
-            weekOrder={weekOrder}
-            getDay={getDay}
-            style={{width:'90%'}}
-            />
+                weekOrder={weekOrder}
+                getDay={getDay}
+                style={{width:'90%'}}
+                history={history}
+              />
             
           }
           </section>

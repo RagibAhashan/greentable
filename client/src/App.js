@@ -9,6 +9,7 @@ import RegisterRestaurant from './pages/registerRestaurant';
 import RestaurantGetStarted from './pages/restaurantGetStarted'
 import OrderFood from './pages/orderFood';
 import UserGetStarted from './pages/userGetStarted';
+import ConfirmOrders from './components/OrderComponents/confirmOrders'
 
 const App = () => {
   return (
@@ -21,8 +22,6 @@ const App = () => {
           <Route path='/register-restaurant' component={RegisterRestaurant}/>
           <Route path='/restaurant/get-started/:loginEmail' name='loginEmail' component={RestaurantGetStarted}/>
           <Route path='/user/get-started/:loginEmail' name='loginEmail' component={UserGetStarted}/>
-
-          {/* <Route path='/register-partner' component={DeliveryDriverRegister}/> */}
           <Route path='/order-food' component={OrderFood}/>
         
         </Switch>

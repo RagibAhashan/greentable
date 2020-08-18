@@ -73,7 +73,7 @@ const RegisterRestaurant = (props) => {
 
     return (
         <div id='restaurant-reg'>
-            <NavBar/>
+            <NavBar />
             <br/>
 
             <section class='view-screen'>  
