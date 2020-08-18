@@ -119,7 +119,7 @@ const OrderFood = () => {
         <div >
           <OrderExplainModal showExplaination={showExplaination} setShowExplaination={setShowExplaination}/>
             <NavBar />
-            <section class='view-screen'>
+
             { !confirmWeekOrders ?
               <div class="row" style={{height:'100%', width:'97%', margin:'auto'}}>
                 <div class="col-8" style={{backgroundColor:'white', height:'100%'}}>
@@ -189,7 +189,7 @@ const OrderFood = () => {
               />
             
           }
-          </section>
+
             
 
               <FooterPage style={{marginTop:'500px'}}/>

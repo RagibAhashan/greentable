@@ -68,10 +68,9 @@ const ConfirmOrders = (props) => {
 
 
     const DayOrder = ({Day, FirstMeal, SecondMeal}) => {
+        
         return (
             <div >
-
-            
             <Card className={classes.root} style={{backgroundColor: '#faf8b4', padding:'10px', marginTop:'30px'}}>
                 <CardContent>
                     <Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -142,21 +141,21 @@ const ConfirmOrders = (props) => {
                 <Grid item xs>
 
                     <DayOrder Day={'Monday'}
-                        FirstMeal={{name:'asdasd', restaurant:'asdjkfhadfjkh'}}
-                        SecondMeal={{name:'asdasd', restaurant:'asdjkfhadfjkh'}}
+                        FirstMeal={{name: weekOrder.Monday.first.food, restaurant: weekOrder.Monday.first.restaurant}}
+                        SecondMeal={{name: weekOrder.Monday.second.food, restaurant: weekOrder.Monday.second.restaurant}}
                     />
 
                 </Grid>
                 <Grid item xs>
-                    <DayOrder Day={'Monday'}
-                        FirstMeal={{name:'asdasd', restaurant:'asdjkfhadfjkh'}}
-                        SecondMeal={{name:'asdasd', restaurant:'asdjkfhadfjkh'}}
+                    <DayOrder Day={'Tuesday'}
+                        FirstMeal={{name: weekOrder.Tuesday.first.food, restaurant: weekOrder.Tuesday.first.restaurant}}
+                        SecondMeal={{name: weekOrder.Tuesday.second.food, restaurant: weekOrder.Tuesday.second.restaurant}}
                     />
                 </Grid>
                 <Grid item xs>
-                    <DayOrder Day={'Monday'}
-                        FirstMeal={{name:'asdasd', restaurant:'asdjkfhadfjkh'}}
-                        SecondMeal={{name:'asdasd', restaurant:'asdjkfhadfjkh'}}
+                    <DayOrder Day={'Wednesday'}
+                        FirstMeal={{name: weekOrder.Wednesday.first.food, restaurant: weekOrder.Wednesday.first.restaurant}}
+                        SecondMeal={{name: weekOrder.Wednesday.second.food, restaurant: weekOrder.Wednesday.second.restaurant}}
                     />
                 </Grid>
             </Grid>
@@ -165,21 +164,21 @@ const ConfirmOrders = (props) => {
 
             <Grid container spacing={3}>
                 <Grid item xs>
-                    <DayOrder Day={'Monday'}
-                        FirstMeal={{name:'asdasd', restaurant:'asdjkfhadfjkh'}}
-                        SecondMeal={{name:'asdasd', restaurant:'asdjkfhadfjkh'}}
+                    <DayOrder Day={'Thursday'}
+                        FirstMeal={{name: weekOrder.Thursday.first.food, restaurant: weekOrder.Thursday.first.restaurant}}
+                        SecondMeal={{name: weekOrder.Thursday.second.food, restaurant: weekOrder.Thursday.second.restaurant}}
                     />
                 </Grid>
                 <Grid item xs>
-                    <DayOrder Day={'Monday'}
-                        FirstMeal={{name:'asdasd', restaurant:'asdjkfhadfjkh'}}
-                        SecondMeal={{name:'asdasd', restaurant:'asdjkfhadfjkh'}}
+                    <DayOrder Day={'Friday'}
+                        FirstMeal={{name: weekOrder.Friday.first.food, restaurant: weekOrder.Friday.first.restaurant}}
+                        SecondMeal={{name: weekOrder.Friday.second.food, restaurant: weekOrder.Friday.second.restaurant}}
                     />
                 </Grid>
                 <Grid item xs>
-                    <DayOrder Day={'Monday'}
-                        FirstMeal={{name:'asdasd', restaurant:'asdjkfhadfjkh'}}
-                        SecondMeal={{name:'asdasd', restaurant:'asdjkfhadfjkh'}}
+                    <DayOrder Day={'Saturday'}
+                        FirstMeal={{name: weekOrder.Saturday.first.food, restaurant: weekOrder.Saturday.first.restaurant}}
+                        SecondMeal={{name: weekOrder.Saturday.second.food, restaurant: weekOrder.Saturday.second.restaurant}}
                     />
                 </Grid>
             </Grid>
@@ -187,16 +186,15 @@ const ConfirmOrders = (props) => {
                 <Grid container spacing={3}>
 
                     <Grid item xs>
-                        <DayOrder Day={'Monday'}
-                            FirstMeal={{name:'asdasd', restaurant:'asdjkfhadfjkh'}}
-                            SecondMeal={{name:'asdasd', restaurant:'asdjkfhadfjkh'}}
+                        <DayOrder Day={'Sunday'}
+                            FirstMeal={{name: weekOrder.Sunday.first.food, restaurant: weekOrder.Sunday.first.restaurant}}
+                            SecondMeal={{name: weekOrder.Sunday.second.food, restaurant: weekOrder.Sunday.second.restaurant}}
                         />
                     </Grid>
 
                 </Grid>
             </div>
 
-            <FooterPage  />
         </div>
     )
 }
