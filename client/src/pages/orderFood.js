@@ -23,13 +23,13 @@ const OrderFood = () => {
 
 
     const [weekOrder, setWeekOrder] = useState({
-      Monday:    {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}},
-      Tuesday:   {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}},
-      Wednesday: {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}},
-      Thursday:  {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}},
-      Friday:    {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}},
-      Saturday:  {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}},
-      Sunday:    {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}},
+      Monday:    {first: {restaurant: '', food: '', type: '', location: '', time: ''},  second: {restaurant: '', food: '', type: '', location: '', time: ''}},
+      Tuesday:   {first: {restaurant: '', food: '', type: '', location: '', time: ''},  second: {restaurant: '', food: '', type: '', location: '', time: ''}},
+      Wednesday: {first: {restaurant: '', food: '', type: '', location: '', time: ''},  second: {restaurant: '', food: '', type: '', location: '', time: ''}},
+      Thursday:  {first: {restaurant: '', food: '', type: '', location: '', time: ''},  second: {restaurant: '', food: '', type: '', location: '', time: ''}},
+      Friday:    {first: {restaurant: '', food: '', type: '', location: '', time: ''},  second: {restaurant: '', food: '', type: '', location: '', time: ''}},
+      Saturday:  {first: {restaurant: '', food: '', type: '', location: '', time: ''},  second: {restaurant: '', food: '', type: '', location: '', time: ''}},
+      Sunday:    {first: {restaurant: '', food: '', type: '', location: '', time: ''},  second: {restaurant: '', food: '', type: '', location: '', time: ''}},
     });
 
 
@@ -110,11 +110,6 @@ const OrderFood = () => {
       }
     }
 
-
-
-
-
-
     return (
         <div >
           <OrderExplainModal showExplaination={showExplaination} setShowExplaination={setShowExplaination}/>
@@ -186,6 +181,7 @@ const OrderFood = () => {
                 getDay={getDay}
                 style={{width:'90%'}}
                 history={history}
+                setConfirmWeekOrders={setConfirmWeekOrders}
               />
             
           }

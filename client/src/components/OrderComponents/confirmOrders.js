@@ -44,31 +44,37 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ConfirmOrders = (props) => {
-    const { weekOrder, getDay, history } = props;
+    const { weekOrder, getDay, history, setConfirmWeekOrders } = props;
     const classes = useStyles();
-
+    const [timelocation, setTimelocation] = useState({
+        Monday:     {location: '', time: ''},
+        Tuesday:    {location: '', time: ''},
+        Wednesday:  {location: '', time: ''},
+        Thursday:   {location: '', time: ''},
+        Friday:     {location: '', time: ''},
+        Saturday:   {location: '', time: ''},
+        Sunday:     {location: '', time: ''},
+    })
     
     useState(() => {
-        history.push(window.location.pathname)
+        setTimelocation({
+            Monday:     {location: '', time: '11:00am'},
+            Tuesday:    {location: '', time: '11:00am'},
+            Wednesday:  {location: '', time: '11:00am'},
+            Thursday:   {location: '', time: '11:00am'},
+            Friday:     {location: '', time: '11:00am'},
+            Saturday:   {location: '', time: '11:00am'},
+            Sunday:     {location: '', time: '11:00am'},
+        })
         console.log('weekOrder', weekOrder)
     }, []);
 
-    const or = {
-        Monday:    {first: {restaurant: 'restaurant', food: 'food', type: ''},  second: {restaurant: '', food: '', type: ''}},
-        Tuesday:   {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}},
-        Wednesday: {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}},
-        Thursday:  {first: {restaurant: 'restaurant', food: 'food', type: ''},  second: {restaurant: '', food: '', type: ''}},
-        Friday:    {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}},
-        Saturday:  {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}},
-        Sunday:    {first: {restaurant: 'restaurant', food: 'food', type: ''},  second: {restaurant: 'restaurant', food: '', type: ''}},
-    }
-
-
-
-
-
     const DayOrder = ({Day, FirstMeal, SecondMeal}) => {
         
+        if (FirstMeal.restaurant === '' && SecondMeal.restaurant === '') {
+            return <div />
+        }
+
         return (
             <div >
             <Card className={classes.root} style={{backgroundColor: '#faf8b4', padding:'10px', marginTop:'30px'}}>
@@ -78,19 +84,22 @@ const ConfirmOrders = (props) => {
                     </Typography>
                     <br />
                     <Typography variant="h5" component="h2">
-                        {`1. ${FirstMeal.name}`}
+                        {`#1. ${FirstMeal.name}`}
                     </Typography>
                     <Typography className={classes.pos} color="textSecondary">
                         {`from ${FirstMeal.restaurant}`}
                     </Typography>
 
-
-                    <Typography variant="h5" component="h2">
-                    {`2. ${SecondMeal.name}`}
-                    </Typography>
-                    <Typography className={classes.pos} color="textSecondary">
-                    {`from ${SecondMeal.restaurant}`}
-                    </Typography>
+                    {SecondMeal.restaurant ? 
+                    <div>
+                        <Typography variant="h5" component="h2">
+                        {`#2. ${SecondMeal.name}`}
+                        </Typography>
+                        <Typography className={classes.pos} color="textSecondary">
+                        {`from ${SecondMeal.restaurant}`}
+                        </Typography>
+                    </div>
+                    : <div />}
 
                     <br />
                     <p> Select Delivery time</p>
@@ -102,9 +111,7 @@ const ConfirmOrders = (props) => {
                         defaultValue='Home'
                         placeholder={'Enter your Address'}
                         style={{width: '100%'}}
-                    /> 
-
-
+                    />
                 </CardContent>
                 <CardActions>
                 </CardActions>
@@ -121,21 +128,24 @@ const ConfirmOrders = (props) => {
             <div style={{width:'90%', margin:'auto', marginBottom:'100px'}}>
             
             <div class="d-flex justify-content-start">
-                    <h1> Schedule your orders and edit delivery locations </h1>
+                <Button
+                 onClick={() => setConfirmWeekOrders(false)}
+                > Change your orders </Button>
                 </div>
                 <div class="d-flex justify-content-end">
                     <Button style={{
-                            width:'32.5%',
-                            height:'80px',
-                            color: 'white',
-                            backgroundColor: 'rgb(93, 227, 93)',
-                            borderRadius:'0px',
-                            fontSize:'20px',
-                            padding:'10px'
-                        }}>
+                        width:'32.5%',
+                        height:'80px',
+                        color: 'white',
+                        backgroundColor: 'rgb(93, 227, 93)',
+                        borderRadius:'0px',
+                        fontSize:'20px',
+                        padding:'10px'
+                    }}>
                         Confirm your order!
                     </Button>
                 </div>
+                <h1> Schedule your orders and edit delivery locations </h1>
 
             <Grid container spacing={3}>
                 <Grid item xs>
