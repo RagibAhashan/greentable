@@ -62,9 +62,14 @@ const LoginPage = (props) => {
           const data = JSON.parse(JSON.stringify(dataPackage));
           const response = await axios.post('http://localhost:4000/user/sign-in-user/', data);
           console.log('response.status', response.status);
-          setLoggedIn(true);
-          localStorage.setItem('EmailAddress', email);
-          setUserInformation(response.data);
+          
+          if(getStarted) {
+            setLoggedIn(true);
+            localStorage.setItem('EmailAddress', email);
+            setUserInformation(response.data);
+          } else {
+            history.push('/')
+          }
         } catch (error) {
           window.alert('Wrong Email or Password.')
           console.log(error);

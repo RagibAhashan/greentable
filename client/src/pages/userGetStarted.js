@@ -32,11 +32,14 @@ const UserGetStarted = (props) => {
                 axios.get(`http://localhost:4000/user/sign-up-user/` + user_id)
                 .then((response)=>{
                     setUserData(response.data.user_info);
-                    setDataFound(true);  
-                })
-                .then(() => {
+                    setDataFound(true);
                     axios.delete(`http://localhost:4000/user/sign-up-user/` + user_id)
-                })
+                    .then(() => {
+                        if(localStorage.getItem('getStartedOrders')) {
+                            history.push('/checkout');
+                        }
+                    })
+                });
 
                 
             } catch(error) {

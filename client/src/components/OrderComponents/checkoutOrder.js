@@ -5,10 +5,11 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import LoginPage from '../../pages/loginPage';
 import FooterPage from '../footerComponent'
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const CheckoutOrder = () => {
-
+    const history = useHistory();
     const [loggedIn, setLoggedIn] = useState(false);
     const [userInformation, setUserInformation] = useState({});
     const [fullName, setFullName] = useState('');
@@ -23,26 +24,28 @@ const CheckoutOrder = () => {
         const getStartedOrdersTimes = JSON.parse(localStorage.getItem('getStartedOrdersTimes'));
         console.log(getStartedOrders, getStartedOrdersTimes);
 
-        getStartedOrders.Monday.location = getStartedOrdersTimes.Monday.location;
-        getStartedOrders.Tuesday.location = getStartedOrdersTimes.Tuesday.location;
-        getStartedOrders.Wednesday.location = getStartedOrdersTimes.Wednesday.location;
-        getStartedOrders.Thursday.location = getStartedOrdersTimes.Thursday.location;
-        getStartedOrders.Friday.location = getStartedOrdersTimes.Friday.location;
-        getStartedOrders.Saturday.location = getStartedOrdersTimes.Saturday.location;
-        getStartedOrders.Sunday.location = getStartedOrdersTimes.Sunday.location;
+        if(getStartedOrders && getStartedOrdersTimes) {
+            getStartedOrders.Monday.location = getStartedOrdersTimes.Monday.location;
+            getStartedOrders.Tuesday.location = getStartedOrdersTimes.Tuesday.location;
+            getStartedOrders.Wednesday.location = getStartedOrdersTimes.Wednesday.location;
+            getStartedOrders.Thursday.location = getStartedOrdersTimes.Thursday.location;
+            getStartedOrders.Friday.location = getStartedOrdersTimes.Friday.location;
+            getStartedOrders.Saturday.location = getStartedOrdersTimes.Saturday.location;
+            getStartedOrders.Sunday.location = getStartedOrdersTimes.Sunday.location;
 
-        getStartedOrders.Monday.time = getStartedOrdersTimes.Monday.time;
-        getStartedOrders.Tuesday.time = getStartedOrdersTimes.Tuesday.time;
-        getStartedOrders.Wednesday.time = getStartedOrdersTimes.Wednesday.time;
-        getStartedOrders.Thursday.time = getStartedOrdersTimes.Thursday.time;
-        getStartedOrders.Friday.time = getStartedOrdersTimes.Friday.time;
-        getStartedOrders.Saturday.time = getStartedOrdersTimes.Saturday.time;
-        getStartedOrders.Sunday.time = getStartedOrdersTimes.Sunday.time;
+            getStartedOrders.Monday.time = getStartedOrdersTimes.Monday.time;
+            getStartedOrders.Tuesday.time = getStartedOrdersTimes.Tuesday.time;
+            getStartedOrders.Wednesday.time = getStartedOrdersTimes.Wednesday.time;
+            getStartedOrders.Thursday.time = getStartedOrdersTimes.Thursday.time;
+            getStartedOrders.Friday.time = getStartedOrdersTimes.Friday.time;
+            getStartedOrders.Saturday.time = getStartedOrdersTimes.Saturday.time;
+            getStartedOrders.Sunday.time = getStartedOrdersTimes.Sunday.time;
 
-        setOrderData(getStartedOrders);
-
-        console.log(getStartedOrders, getStartedOrdersTimes);
-
+            setOrderData(getStartedOrders);
+            console.log(getStartedOrders, getStartedOrdersTimes);
+        } else {
+            history.push('/');
+        }
 
         
     }, []);
@@ -62,11 +65,11 @@ const CheckoutOrder = () => {
         <div>
             <div class="d-flex justify-content-center" style={{paddingTop:'10%'}}> 
                 {!loggedIn ? 
-                <LoginPage
-                    getStarted={true}
-                    setLoggedIn={setLoggedIn}
-                    setUserInformation={setUserInformation}
-                />
+                    <LoginPage
+                        getStarted={true}
+                        setLoggedIn={setLoggedIn}
+                        setUserInformation={setUserInformation}
+                    />
                 : 
 
                 <Paper elevation={4} style={{width:'50%', padding:'30px'}}>
@@ -78,7 +81,7 @@ const CheckoutOrder = () => {
                         
                                 <h2> Billing information </h2>
                                 <br />
-                                <p> {`Full Name ${fullName}`} </p>
+                                <p> {`Full Name: ${fullName}`} </p>
                                 <p> {`Phone Number: ${phoneNumber}`} </p>
                                 <p> {`Home Address: ${homeAddress}`} </p>
 
@@ -93,9 +96,13 @@ const CheckoutOrder = () => {
                                     variant="outlined"
                                     style={{width:'40%', color:'green'}}
                                     onClick={async () => {
-                                        await axios.post(`http://localhost:4000/user/${email}`,
-                                        JSON.parse(JSON.stringify(orderData))
-                                        )
+                                        try {
+                                            await axios.post(`http://localhost:4000/user/${email}`, JSON.parse(JSON.stringify(orderData)));
+                                            localStorage.removeItem('getStartedOrdersTimes');
+                                            localStorage.removeItem('getStartedOrders');
+                                        } catch(error) {
+                                            console.log(error);
+                                        }
                                     }}
                                 >
                                     Confirm orders </Button>
