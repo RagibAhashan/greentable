@@ -27,8 +27,6 @@ const UserGetStarted = (props) => {
 
         if (!dataFound) {
             try {
-                // delete /user/sign-up-user/:id
-
                 axios.get(`http://localhost:4000/user/sign-up-user/` + user_id)
                 .then((response)=>{
                     setUserData(response.data.user_info);

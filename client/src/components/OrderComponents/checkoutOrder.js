@@ -8,7 +8,8 @@ import FooterPage from '../footerComponent'
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
-const CheckoutOrder = () => {
+const CheckoutOrder = (props) => {
+    const { isLoggedIn } = props;
     const history = useHistory();
     const [loggedIn, setLoggedIn] = useState(false);
     const [userInformation, setUserInformation] = useState({});
@@ -19,6 +20,8 @@ const CheckoutOrder = () => {
     const [orderData, setOrderData] = useState({});
 
     useEffect(() => {
+        console.log('isLoggedIn', isLoggedIn)
+
         setLoggedIn(false);
         const getStartedOrders = JSON.parse(localStorage.getItem('getStartedOrders'));
         const getStartedOrdersTimes = JSON.parse(localStorage.getItem('getStartedOrdersTimes'));
