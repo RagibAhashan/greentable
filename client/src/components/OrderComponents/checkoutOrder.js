@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import LoginPage from '../../pages/loginPage';
+import FooterPage from '../footerComponent'
 import axios from 'axios';
 
 const CheckoutOrder = () => {
@@ -119,6 +120,7 @@ const CheckoutOrder = () => {
                 }
 
             </div>
+            {loggedIn ? <div style={{marginTop:'10%'}}> <FooterPage  /> </div> : <div />}
         </div>
     )
 }
