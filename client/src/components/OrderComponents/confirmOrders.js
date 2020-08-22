@@ -6,10 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-import TimePicker from 'react-bootstrap-time-picker';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import FooterPage from '../footerComponent'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -70,8 +67,6 @@ const ConfirmOrders = (props) => {
         Saturday:   {location: '', time: ''},
         Sunday:     {location: '', time: ''},
     })
-
-    const [mondayTime, setMondayTime] = useState({});
     
     useState(() => {
         setTimelocation({
@@ -82,8 +77,7 @@ const ConfirmOrders = (props) => {
             Friday:     {location: '', time: '12:00 PM'},
             Saturday:   {location: '', time: '12:00 PM'},
             Sunday:     {location: '', time: '12:00 PM'},
-        })
-        console.log('weekOrder', weekOrder)
+        });
     }, []);
 
 
@@ -140,7 +134,6 @@ const ConfirmOrders = (props) => {
                     <TextField
                         label='Delivery Address'
                         defaultValue='Home'
-                        value={mondayTime.location}
                         placeholder={'Enter your Address'}
                         style={{width: '100%'}}
                         onChange={(e) => {
@@ -172,14 +165,20 @@ const ConfirmOrders = (props) => {
                 </div>
                 <div class="d-flex justify-content-end">
                     <Button style={{
-                        width:'32.5%',
-                        height:'80px',
-                        color: 'white',
-                        backgroundColor: 'rgb(93, 227, 93)',
-                        borderRadius:'0px',
-                        fontSize:'20px',
-                        padding:'10px'
-                    }}>
+                            width:'32.5%',
+                            height:'80px',
+                            color: 'white',
+                            backgroundColor: 'rgb(93, 227, 93)',
+                            borderRadius:'0px',
+                            fontSize:'20px',
+                            padding:'10px'
+                        }}
+                        onClick={() => {
+                            localStorage.setItem('getStartedOrders', JSON.stringify(weekOrder))
+                            localStorage.setItem('getStartedOrdersTimes', JSON.stringify(timelocation))
+                            history.push('/checkout')
+                        }}
+                    >
                         Confirm your order!
                     </Button>
                 </div>
@@ -187,13 +186,6 @@ const ConfirmOrders = (props) => {
 
             <Grid container spacing={3}>
                 <Grid item xs>
-
-                    {/* <DayOrder Day={'Monday'}
-                        FirstMeal={{name: weekOrder.Monday.first.food, restaurant: weekOrder.Monday.first.restaurant}}
-                        SecondMeal={{name: weekOrder.Monday.second.food, restaurant: weekOrder.Monday.second.restaurant}}
-                        time={timelocation.Monday.time}
-                        location={timelocation.Monday.location}
-                    /> */}
 
             {!weekOrder.Monday.first.restaurant ? <div />  : 
             <Card className={classes.root} style={{backgroundColor: '#faf8b4', padding:'10px', marginTop:'30px'}}>
@@ -241,7 +233,6 @@ const ConfirmOrders = (props) => {
                     <TextField
                         label='Delivery Address'
                         defaultValue='Home'
-                        value={mondayTime.location}
                         placeholder={'Enter your Address'}
                         style={{width: '100%'}}
                         onChange={(e) => {

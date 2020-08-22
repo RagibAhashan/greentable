@@ -23,13 +23,13 @@ const OrderFood = () => {
 
 
     const [weekOrder, setWeekOrder] = useState({
-      Monday:    {first: {restaurant: '', food: '', type: '', location: '', time: ''},  second: {restaurant: '', food: '', type: '', location: '', time: ''}},
-      Tuesday:   {first: {restaurant: '', food: '', type: '', location: '', time: ''},  second: {restaurant: '', food: '', type: '', location: '', time: ''}},
-      Wednesday: {first: {restaurant: '', food: '', type: '', location: '', time: ''},  second: {restaurant: '', food: '', type: '', location: '', time: ''}},
-      Thursday:  {first: {restaurant: '', food: '', type: '', location: '', time: ''},  second: {restaurant: '', food: '', type: '', location: '', time: ''}},
-      Friday:    {first: {restaurant: '', food: '', type: '', location: '', time: ''},  second: {restaurant: '', food: '', type: '', location: '', time: ''}},
-      Saturday:  {first: {restaurant: '', food: '', type: '', location: '', time: ''},  second: {restaurant: '', food: '', type: '', location: '', time: ''}},
-      Sunday:    {first: {restaurant: '', food: '', type: '', location: '', time: ''},  second: {restaurant: '', food: '', type: '', location: '', time: ''}},
+      Monday:    {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}, location: '', time: ''},
+      Tuesday:   {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}, location: '', time: ''},
+      Wednesday: {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}, location: '', time: ''},
+      Thursday:  {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}, location: '', time: ''},
+      Friday:    {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}, location: '', time: ''},
+      Saturday:  {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}, location: '', time: ''},
+      Sunday:    {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}, location: '', time: ''},
     });
 
 

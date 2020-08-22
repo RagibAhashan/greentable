@@ -10,6 +10,7 @@ import RestaurantGetStarted from './pages/restaurantGetStarted'
 import OrderFood from './pages/orderFood';
 import UserGetStarted from './pages/userGetStarted';
 import ConfirmOrders from './components/OrderComponents/confirmOrders'
+import CheckoutOrder from './components/OrderComponents/checkoutOrder';
 
 const App = () => {
   return (
@@ -18,12 +19,14 @@ const App = () => {
           <Route path='/' exact component={HomePage}/>
           <Route path='/login' component={LoginPage}/>
           <Route path='/sign-up-client' component={UserSignUp}/>
-          
+
           <Route path='/register-restaurant' component={RegisterRestaurant}/>
           <Route path='/restaurant/get-started/:loginEmail' name='loginEmail' component={RestaurantGetStarted}/>
           <Route path='/user/get-started/:loginEmail' name='loginEmail' component={UserGetStarted}/>
+
           <Route path='/order-food' component={OrderFood}/>
-        
+          <Route path='/checkout' component={CheckoutOrder}/>
+
         </Switch>
       </Router>
   );

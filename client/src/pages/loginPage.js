@@ -36,14 +36,22 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-const LoginPage = () => {
+const LoginPage = (props) => {
+    const { setLoggedIn, getStarted, setUserInformation } = props;
 
     const history = useHistory();
     const classes = useStyles();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    useEffect(() => {
+      const userName = localStorage.getItem('EmailAddress');
+      console.log('userName', userName);
+      if(userName) {
+        setEmail(userName);
+      }
 
+    }, [])
   
     const signIn = async () => {
       try {
@@ -54,11 +62,13 @@ const LoginPage = () => {
           const data = JSON.parse(JSON.stringify(dataPackage));
           const response = await axios.post('http://localhost:4000/user/sign-in-user/', data);
           console.log('response.status', response.status);
-          history.push('/');
-      } catch (error) {
+          setLoggedIn(true);
+          localStorage.setItem('EmailAddress', email);
+          setUserInformation(response.data);
+        } catch (error) {
           window.alert('Wrong Email or Password.')
           console.log(error);
-      }
+        }
   }
 
 
@@ -70,12 +80,16 @@ const LoginPage = () => {
         <Container id='loginPage' component="main" maxWidth="sm">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign in
-        </Typography>
+            {getStarted ? <div> <h1> You're almost there! </h1> <h5> Sign in and get your orders </h5> </div> :
+            <div>
+              <Avatar className={classes.avatar}>
+                <LockOutlinedIcon />
+              </Avatar>
+              <Typography component="h1" variant="h5">
+                Sign in
+              </Typography>
+            </div>
+          }
         <form className={classes.form} noValidate>
           <TextField
             variant="outlined"
@@ -87,6 +101,7 @@ const LoginPage = () => {
             name="email"
             autoComplete="email"
             autoFocus
+            defaultValue={localStorage.getItem('EmailAddress')}
             onChange={(ev) => {setEmail(ev.target.value)}}
           />
 
@@ -106,22 +121,20 @@ const LoginPage = () => {
           />
           
           <Button
-            // type="submit"
             fullWidth
             variant="contained"
             color="primary"
-            // className={classes.submit}
             onClick={async () => await signIn()}
           >
             Sign In
           </Button>
 
-          <br />
+          <br /><br />
           <Grid container>
             <Grid item xs>
-              {/* <Link href="/forgot-password" variant="body2">
+              <Link href="/forgot-password" variant="body2">
                 Forgot password?
-              </Link> */}
+              </Link>
             </Grid>
             <Grid item>
               <Link href="/sign-up-client" variant="body2">
@@ -138,7 +151,7 @@ const LoginPage = () => {
       <div id='copyright'>
         {'Copyright © '}
         <Link color="inherit" href="/">
-          GreenTable
+          Nasta
         </Link>{' '}
         {new Date().getFullYear()}
         {'.'}

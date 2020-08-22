@@ -53,6 +53,7 @@ const UserSignUp = () => {
     const [lastName, setLastName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
 
+
   
     const signUp = async () => {
         console.log(email, password, firstName, lastName, phoneNumber);
