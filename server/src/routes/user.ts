@@ -134,14 +134,43 @@ export const signIn = async (req: Request, res: Response) => {
         const data: any = docRef.data();
         const hashPassword = data.password;
         const match = await bcrypt.compare(password, hashPassword)
+        data.password = 'notrealpassword';
+
         if (match) {
             res.status(200).send({
-                passMatched: true
+                passMatched: true,
+                userData: {
+                    firstName: data.firstName,
+                    lastName: data.lastName,
+                    phoneNumber: data.phoneNumber,
+                    email: data.email
+                }
             });
         } else {
             res.status(401).send({
                 passMatched: false
             });
         }
+    }
+}
+
+export const addMealPlan = async (req: Request, res: Response) => {
+    const email = req.params.email;
+    const db = new Firestore();
+    const WEEK_MS = 604800000;
+    const DAY_MS = 86400000;
+    const orderWeek = new Date((parseInt(((new Date().getTime() + WEEK_MS)/WEEK_MS).toFixed()))*WEEK_MS - DAY_MS*3).toISOString().substr(0,10);
+    try {
+        await db.collection('users').doc(email).collection('orders')
+        .doc(orderWeek).set(req.body);
+
+        res.status(200).send({
+            message: 'Order was added!'
+        })
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({
+            message: 'Something went wrong'
+        })
     }
 }

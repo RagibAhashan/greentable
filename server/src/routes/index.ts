@@ -24,5 +24,6 @@ router.post('/user/sign-in-user/', jsonParser, User.signIn);
 router.post('/user/', jsonParser, User.requestRegistrationEmail);
 router.get('/user/sign-up-user/:id', jsonParser, User.getConfimationUser);
 router.delete('/user/sign-up-user/:id', jsonParser, User.deleteQueueUser);
+router.post('/user/:email', jsonParser, User.addMealPlan);
 
 export default router;
