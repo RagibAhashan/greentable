@@ -1,9 +1,11 @@
 import React from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 import './footerPage.css'
+import { useHistory } from "react-router";
 
 
 const FooterPage = () => {
+  const history = useHistory();
   return (
       
       <div class='row' style={{
@@ -15,7 +17,7 @@ const FooterPage = () => {
       >
         <div class='col'> 
           <div class="d-flex justify-content-center">
-            <h1 style={{fontSize:'80px'}}> Nasta </h1> 
+            <h1 style={{fontSize:'80px', cursor:'pointer'}} onClick={() => history.push('/')}> Nasta </h1> 
           </div>
         </div>
 

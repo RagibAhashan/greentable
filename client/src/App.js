@@ -9,6 +9,7 @@ import RestaurantGetStarted from './pages/restaurantGetStarted'
 import OrderFood from './pages/orderFood';
 import UserGetStarted from './pages/userGetStarted';
 import CheckoutOrder from './components/OrderComponents/checkoutOrder';
+import Pricing from './components/OrderComponents/pricing'
 
 const withProps = (Component, props) => {
   return function(matchProps) {
@@ -36,13 +37,9 @@ const App = () => {
           <Route path='/user/get-started/:loginEmail' name='loginEmail' component={UserGetStarted}/>
 
           <Route path='/order-food' component={OrderFood}/>
+          <Route path='/pricing' component={Pricing}/> 
           <Route path='/checkout' isLoggedIn={isLoggedIn} component={withProps(CheckoutOrder, { isLoggedIn: isLoggedIn })} />
 
-          {isLoggedIn ? 
-            <Route path='/menu' component={CheckoutOrder}/>
-            : <div />
-          }
-          
         </Switch>
       </Router>
   );

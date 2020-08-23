@@ -176,7 +176,7 @@ const ConfirmOrders = (props) => {
                         onClick={() => {
                             localStorage.setItem('getStartedOrders', JSON.stringify(weekOrder))
                             localStorage.setItem('getStartedOrdersTimes', JSON.stringify(timelocation))
-                            history.push('/checkout')
+                            history.push('/pricing')
                         }}
                     >
                         Confirm your order!

@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    width: 320px;
+    cursor: pointer;
+    margin-right: auto;
+}
+
+.navBar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 30px 10%;
+    background-color: #ffffff23;
+    transition: all 0.5s ease 0s;
+}
+
+.logo-trigger{
+    color: white;
+}
+
+.logo-trigger:hover{
+    color: black;
+}
+
+div > .logo:hover{
+    color: black;
+}
+
+.navBar:hover {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 30px 10%;
+    background-color: #ffffff;
+    transition: all 0.5s ease 0s;
+
+}
+
+#border {
+    width: 90%;
+    margin: auto;
+    border-bottom: 2px solid #ff5549;
+}
+
+.nav__links {
+    margin-top: 15px;
+    list-style: none;
+}
+
+.nav__links:hover {
+    /* margin-top: 0px; */
+    list-style: none;
+    transition: all 0.2s ease 0s;
+}
+
+.tab_btn_link {
+    padding: 9px 25px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.5s ease 0s;
+}
+
+.tab_btn_link:hover {
+    border-radius: 50px;
+    background-color: rgba(200, 224, 230, 0.52);
+    color: rgb(5, 28, 49);
+    transition: all 0.2s ease 0s;
+}
+
+
+.tab {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #000000;
+    text-decoration: none;
+    font-size: 21px;
+    display: inline-block;
+    padding: 0px 20px;
+    
+}
+
+.tab_link {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 540;
+    font-size: 20px;
+    /* font-weight: 500; */
+    color: #000000;
+    text-decoration: none;
+    font-size: 21px;
+    text-decoration: none;
+    transition: all 0.2s ease 0s;
+}
+
+.tab_link:hover {
+    color: #0088a9;
+    text-decoration: none;
+}
+
+#sign-in {
+    padding: 9px 25px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000000;
+    font-weight: 500;
+    color: #ffffff;
+    border-style: solid;
+    border-color: #000000;
+    font-size: 21px;
+    border-radius: 0px;
+    margin-left: 40px;
+    cursor: pointer;
+    transition: all 0.2s ease 0s;
+}
+
+#sign-in:hover {
+    background-color: rgb(255, 255, 255);
+    color:  #000000;
+    transition: all 0.2s ease 0s;
+}
+
+#reg-partner {
+    padding: 9px 25px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ff5649;
+    font-weight: 500;
+    color: #ffffff;
+    border-style: solid;
+    border-color: #ff5649;
+    font-size: 21px;
+    border-radius: 0px;
+    margin-left: 40px;
+    cursor: pointer;
+    transition: all 0.2s ease 0s;
+}
+
+#reg-partner:hover {
+    background-color: rgb(255, 255, 255);
+    color:  #ff5649;
+    border-color: #ff5649;
+    transition: all 0.2s ease 0s;
+}
