@@ -271,7 +271,7 @@ const CheckoutOrder = (props) => {
 
                                         setTimeout(() => {
                                             setOpen(false);
-                                            history.push('/')
+                                            history.push('/menu')
                                         }, 1000);
 
 

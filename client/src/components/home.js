@@ -211,7 +211,7 @@ const HomePage = () => {
                 <div class='row' >
                     <div class='col'>
                         <div class="d-flex justify-content-center" >
-                            <img src={IPhone} alt='brouse' style={{width:'40%'}} />
+                            <img src={IPhone} alt='brouse' style={{width:'30%'}} />
                         </div>
                     </div>
                     <div class='col' >
@@ -260,7 +260,7 @@ const HomePage = () => {
             <section style={{backgroundColor:'#e8ba5a', paddingTop:'100px', paddingBottom:'100px'}}>
                 <div class='row'>
                 <div class='col' data-aos='fade-right'>
-                        <img src={ImageOne} alt='brouse' style={{width:'90%', position: 'absolute', paddingLeft:'5%'}} />
+                        <img src={ImageOne} alt='brouse' style={{width:'90%',  paddingLeft:'5%'}} />
                 </div>
                 <div class='col' style={{marginLeft:'-5%', color: 'white'}} data-aos='fade-left'>
                     <div style={{marginLeft:'30%', width:'600px', paddingTop:'10%'}} >
@@ -276,42 +276,26 @@ const HomePage = () => {
 
 
 
-            {/* <section style={{backgroundColor:'#e8ba5a', paddingTop:'10%', paddingBottom:'12%'}}>
-                <div class='row'>
-                    <div class='col' data-aos='fade-right'>
-                        <img src={ImageOne} alt='brouse' style={{height:'800px', position: 'absolute', marginLeft:'5%', paddingTop:'15%'}} />
-                    </div>
-                    <div class='col' data-aos='fade-left'>
-                        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-                        <div style={{marginRight:'30%', width:'700px', color:'white'}}>
-                            <h1 style={{fontSize:'90px'}}> You're busy, we know that </h1>
-                            <p style={{fontSize:'25px'}}> 
-                                Let the pros handle the cooking. Order ahead. Save Time. Save Money
-                            </p>
-                            
-                        </div>
-                    </div>
-                </div>
-            </section> */}
-
 
 
             <section style={{backgroundColor:'#FAFAF6', paddingTop:'200px', paddingBottom:'200px'}}>
                 <div class='row'>
-                    <div class='col' data-aos='fade-right'>
-                        <div style={{marginLeft:'30%', width:'700px'}}>
-                            <h1 style={{fontSize:'90px'}}> Best meal plan you've ever had </h1>
-                            <p style={{fontSize:'25px'}}> 
+                    <div class='col' >
+                        <div  style={{margin:'auto', width:'700px'}}>
+                            <h1 style={{fontSize:'90px'}} data-aos='fade-in'> Best meal plan you've ever had </h1>
+                            <p style={{fontSize:'25px'}} data-aos='fade-in'> 
                                 Gone are the days of bland meal plans. Get your favourite dishes from the best restaurants in your city
                             </p>
+                            <Button 
+                                data-aos='fade-in'
+                                id='order-now'
+                                style={{marginTop:'30px'}}
+                                onClick={()=>{history.push("/order-food");}}
+                            > {'Get started'} </Button>
                             
                         </div>
                     </div>
-                    <div class='col' data-aos='fade-left'>
-                        <div class="d-flex justify-content-center" >
-                            <img src={IPhone} alt='brouse' style={{width:'40%'}} />
-                        </div>
-                    </div>
+    
                 </div>
             </section>
 

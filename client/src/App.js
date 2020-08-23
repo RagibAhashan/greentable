@@ -2,14 +2,15 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import HomePage from './components/home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import LoginPage from './pages/loginPage'
-import UserSignUp from './pages/UserSignUp'
+import LoginPage from './pages/loginPage';
+import UserSignUp from './pages/UserSignUp';
 import RegisterRestaurant from './pages/registerRestaurant';
-import RestaurantGetStarted from './pages/restaurantGetStarted'
+import RestaurantGetStarted from './pages/restaurantGetStarted';
 import OrderFood from './pages/orderFood';
 import UserGetStarted from './pages/userGetStarted';
 import CheckoutOrder from './components/OrderComponents/checkoutOrder';
-import Pricing from './components/OrderComponents/pricing'
+import Pricing from './components/OrderComponents/pricing';
+import DashBoard from './pages/LoggedInDash/dashBoard';
 
 const withProps = (Component, props) => {
   return function(matchProps) {
@@ -37,7 +38,8 @@ const App = () => {
           <Route path='/user/get-started/:loginEmail' name='loginEmail' component={UserGetStarted}/>
 
           <Route path='/order-food' component={OrderFood}/>
-          <Route path='/pricing' component={Pricing}/> 
+          <Route path='/pricing' component={Pricing}/>
+          <Route path='/menu' component={DashBoard}/>
           <Route path='/checkout' isLoggedIn={isLoggedIn} component={withProps(CheckoutOrder, { isLoggedIn: isLoggedIn })} />
 
         </Switch>
