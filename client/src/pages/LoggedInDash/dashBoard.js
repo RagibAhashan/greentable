@@ -11,7 +11,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { pruneNonErrors } from 'react-hooks-useform/dist/validate/pruneNonErrors';
+import MealWeekComponent from '../../components/mealWeekBar/mealWeek';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -62,12 +62,23 @@ const DashBoard = () => {
         )
     }
 
+    const MealWeek = () => {
+        return (
+            <div> 
+                
+
+            </div>
+        )
+    }
+
     return (
         <div>
             <NavBarLoggedIn />
 
-            <div style={{width:'70%', margin:'auto'}}>
-            <Grid container spacing={5}>
+            <div style={{width:'80%', margin:'auto'}}>
+            <MealWeekComponent />
+
+            <Grid container spacing={5} style={{ marginTop:'10px' }}>
 
                 <Grid item xs={6} sm={3}>
                     <ShowRestaurant
