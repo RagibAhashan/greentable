@@ -28,6 +28,7 @@ const MealWeekComponent = () => {
 
     useEffect(() => {
         console.log(weekOrder);
+        
     }, [])
 
 
