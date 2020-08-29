@@ -10,7 +10,6 @@ const useStyles = makeStyles((theme) => ({
     paper: {
       padding: theme.spacing(2),
       textAlign: 'center',
-    //   color: theme.palette.text.secondary,
     },
 }));
 
@@ -26,6 +25,10 @@ const MealWeekComponent = () => {
         Saturday:  {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}, location: '', time: ''},
         Sunday:    {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}, location: '', time: ''},
     });
+
+    useEffect(() => {
+        console.log(weekOrder);
+    }, [])
 
 
     return (
