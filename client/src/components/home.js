@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
-import { Row, Col, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import './home.css'
 import NavBar from './navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import LandingPageImage from '../assets/img/deliveringFood.png'
 import FooterPage from '../components/footerComponent'
 
 import GetOrder from '../assets/img/getorder.png';
@@ -12,14 +11,10 @@ import Schedule from '../assets/img/schedule.png';
 import FirstImage from '../assets/img/landingPage.jpg'
 
 
-import Busy from '../assets/img/busy.png'
-import Cooking from '../assets/img/cooking.PNG'
-import Delivery from '../assets/img/delivery.PNG'
 import IPhone from '../assets/img/iPhone.png'
 
 import ImageOne from '../assets/img/foodOne.jpg'
 import ImageTwo from '../assets/img/foodTwo.jpg'
-import ImageThree from '../assets/img/foodThree.jpg'
 
 import { useHistory } from 'react-router-dom';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -31,8 +26,6 @@ import 'aos/dist/aos.css';
 const HomePage = () => {
     const history = useHistory();
     const queryLarge = useMediaQuery('(min-width:1200px)');
-    const queryMid = useMediaQuery('(min-width:900px)');
-    const querySmall = useMediaQuery('(min-width:900px)');
 
     useEffect(()=>{
         Aos.init({ duration: 1000});
@@ -74,9 +67,6 @@ const HomePage = () => {
                         <div class='col' style={{textAlign:'center'}} data-aos='fade-left'>
                             <img src={GetOrder}  alt='picup' style={{width:'580px'}}/>
                             <h2 style={{ top:'60%', transform: 'translate(57%, 10%)', width:'300px', marginTop:'8%'}}> Get your order </h2>
-                            {/* <p style={{ top:'60%', transform: 'translate(57%, 10%)', width:'300px'}}> 
-                                We'll shoot you a text reminding you of your order, and you'll get to enjoy your meals with no worry.
-                            </p> */}
                         </div>
                     </div>
                 </div>
@@ -99,9 +89,6 @@ const HomePage = () => {
                                     <h2 > 
                                         Pick your restaurant and meals 
                                     </h2>
-                                    {/* <h6> 
-                                    Want to order from multiple restaurants and dishes for your plan? Order the most popular dishes from our partners.
-                                    </h6> */}
                                 </div>
                             </div>
                         </div>  
@@ -119,9 +106,6 @@ const HomePage = () => {
                                 <h2 style={{ width:'300px'}}> Schedule date, time and frequency of meals </h2>
                             </div>
                             <div class="d-flex justify-content-center" >
-                            {/* <h6 style={{ width:'300px'}}> 
-                                Mix and match the days you'd like to have your preferred meals!
-                            </h6> */}
                             </div>
                         </div>  
                     </div>
@@ -137,9 +121,6 @@ const HomePage = () => {
                                 <h2 style={{ width:'300px'}}> Get your order </h2>
                             </div>
                             <div class="d-flex justify-content-center" >
-                            {/* <h6 style={{ width:'300px'}}> 
-                            We'll shoot you a text reminding you of your order, and you'll get to enjoy your meals with no worry.
-                            </h6> */}
                             </div>
                         </div>  
                     </div>
@@ -279,30 +260,24 @@ const HomePage = () => {
 
 
             <section style={{backgroundColor:'#FAFAF6', paddingTop:'200px', paddingBottom:'200px'}}>
-                {/* <div class='row'>
-                    <div class='col' > */}
-                        <div  style={{textAlign: 'center'}}>
-                            <h1 style={{fontSize:'90px'}} data-aos='fade-in'> Best meal plan you've ever had </h1>
-                            <p style={{fontSize:'25px'}} data-aos='fade-in'> 
-                                Gone are the days of bland meal plans. Get your favourite dishes from the best restaurants in your city
-                            </p>
-                        </div>
+                <div  style={{textAlign: 'center'}}>
+                    <h1 style={{fontSize:'90px'}} data-aos='fade-in'> Best meal plan you've ever had </h1>
+                    <p style={{fontSize:'25px'}} data-aos='fade-in'> 
+                        Gone are the days of bland meal plans. Get your favourite dishes from the best restaurants in your city
+                    </p>
+                </div>
 
-                        <div style={{margin:'auto', width: '600px'}}>
+                <div style={{margin:'auto', width: '600px'}}>
 
-                            <Button 
-                                data-aos='fade-in'
-                                id='order-now'
-                                style={{marginTop:'30px'}}
-                                onClick={()=> history.push("/order-food") }
-                                > 
-                                {'Get started'} 
-                            </Button>
-                        </div>
-                            
-                        {/* </div>
-                    </div> */}
-    
+                    <Button 
+                        data-aos='fade-in'
+                        id='order-now'
+                        style={{marginTop:'30px'}}
+                        onClick={()=> history.push("/order-food") }
+                        > 
+                        {'Get started'} 
+                    </Button>
+                </div>
             </section>
 
 
