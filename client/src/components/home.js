@@ -279,24 +279,30 @@ const HomePage = () => {
 
 
             <section style={{backgroundColor:'#FAFAF6', paddingTop:'200px', paddingBottom:'200px'}}>
-                <div class='row'>
-                    <div class='col' >
-                        <div  style={{margin:'auto', width:'700px'}}>
+                {/* <div class='row'>
+                    <div class='col' > */}
+                        <div  style={{textAlign: 'center'}}>
                             <h1 style={{fontSize:'90px'}} data-aos='fade-in'> Best meal plan you've ever had </h1>
                             <p style={{fontSize:'25px'}} data-aos='fade-in'> 
                                 Gone are the days of bland meal plans. Get your favourite dishes from the best restaurants in your city
                             </p>
+                        </div>
+
+                        <div style={{margin:'auto', width: '600px'}}>
+
                             <Button 
                                 data-aos='fade-in'
                                 id='order-now'
                                 style={{marginTop:'30px'}}
-                                onClick={()=>{history.push("/order-food");}}
-                            > {'Get started'} </Button>
-                            
+                                onClick={()=> history.push("/order-food") }
+                                > 
+                                {'Get started'} 
+                            </Button>
                         </div>
-                    </div>
+                            
+                        {/* </div>
+                    </div> */}
     
-                </div>
             </section>
 
 

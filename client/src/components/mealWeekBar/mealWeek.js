@@ -10,7 +10,12 @@ const useStyles = makeStyles((theme) => ({
     paper: {
       padding: theme.spacing(2),
       textAlign: 'center',
+      border: 'solid 1px',
+      '&:hover': {
+        border: '1px solid #13eba2',
+      }
     },
+    
 }));
 
 const MealWeekComponent = () => {
@@ -38,39 +43,39 @@ const MealWeekComponent = () => {
       <Grid container spacing={2}>
 
         <Grid item xs>
-          <Paper className={classes.paper}>
+          <Paper className={classes.paper} >
               <p> Monday </p>
           </Paper>
         </Grid>
         <Grid item xs>
-            <Paper className={classes.paper}>
+            <Paper className={classes.paper} >
               <p> Tuesday </p>
           </Paper>
         </Grid>
         <Grid item xs>
-            <Paper className={classes.paper}>
+            <Paper className={classes.paper} >
               <p> Wednesday </p>
           </Paper>
         </Grid>
         <Grid item xs>
-            <div className={classes.paper} style={{ border: 'solid 1px'}}>
+            <Paper className={classes.paper} >
               <p> Thursday </p>
-            </div>
+            </Paper>
         </Grid>
         <Grid item xs>
-            <Paper className={classes.paper}>
+            <Paper className={classes.paper} >
               <p> Friday </p>
           </Paper>
         </Grid>
 
         <Grid item xs>
-            <Paper className={classes.paper}>
+            <Paper className={classes.paper} >
               <p> Saturday </p>
           </Paper>
         </Grid>
 
         <Grid item xs>
-            <Paper className={classes.paper}>
+            <Paper className={classes.paper} >
               <p> Sunday </p>
           </Paper>
         </Grid>

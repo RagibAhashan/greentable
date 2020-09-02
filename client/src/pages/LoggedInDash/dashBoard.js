@@ -9,27 +9,23 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import MealWeekComponent from '../../components/mealWeekBar/mealWeek';
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
-    maxWidth: 445,
-    borderRadius: 0,
-    border: 'none',
-    borderBottom: '1px solid black',
-    '&:hover': {
-        borderBottom: '1px solid #13eba2',
-    }
-},
+        flexGrow: 1,
+        maxWidth: 445,
+        borderRadius: 0,
+        border: 'none',
+        borderBottom: '1px solid black',
+    },
   paper: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
+        padding: theme.spacing(1),
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+    },
   media: {
     height: 180,
   },
