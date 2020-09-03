@@ -198,9 +198,7 @@ const DashBoard = () => {
                         Select your <span style={{color:'#ff5649'}}>{selectedDay}</span> meal
                     </h1>
                 : 
-                    <div style={{color:'white', marginTop:'auto', backgroundColor: '#e8ba5a', height: '70px'}}> 
-                        <h1> Select a which day you would like to add a meal!</h1>
-                    </div>
+                    <h1 data-aos='fade-in'> Select a which day you would like to add a meal!</h1>
                 }
             </div>
             <br />
