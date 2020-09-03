@@ -18,7 +18,7 @@ const NavBarLoggedIn = (props) => {
 
             <h1> Welcome back Ragib! </h1>
             
-            <p> We know you're hungry, we got you.</p>
+            {/* <p> We know you're hungry, we got you.</p> */}
             </div>
             <a href="#">
                 <button id='reg-partner'> Your previous orders </button>
