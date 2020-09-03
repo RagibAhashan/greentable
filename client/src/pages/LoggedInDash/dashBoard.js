@@ -36,10 +36,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
+function useForceUpdate(){
+    const [value, setValue] = useState(0); // integer state
+    return () => setValue(value => ++value); // update the state to force render
+  }
 
 const DashBoard = () => {
-
+    const forceUpdate = useForceUpdate();
     useEffect(()=>{
         Aos.init({ duration: 1000});
     }, []);
@@ -48,6 +51,7 @@ const DashBoard = () => {
     const classes = useStyles();
     const [selectedDay, setSelectedDay] = useState('');
     const [selectedRestaurant, setSelectedRestaurant] = useState('');
+    const [mealSelected, setMealSelected] = useState('');
 
     const FakeRestaurant = {
         'id': 'f4494b15-b037-452c-933c-f7e959dcda11',
@@ -71,6 +75,8 @@ const DashBoard = () => {
         }
     };
 
+    
+
     const [weekOrder, setWeekOrder] = useState({
         Monday:    {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}, location: '', time: ''},
         Tuesday:   {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}, location: '', time: ''},
@@ -80,6 +86,21 @@ const DashBoard = () => {
         Saturday:  {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}, location: '', time: ''},
         Sunday:    {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}, location: '', time: ''},
     });
+
+    useEffect(() => {
+
+        if(selectedDay !== '') {
+
+            const copy = weekOrder;
+            copy[selectedDay.toString()].first = mealSelected;
+            setWeekOrder(copy)
+            
+            // console.log('NEW_COPY', copy)
+        }
+
+        // console.log(selectedDay);
+        forceUpdate();
+    }, [mealSelected])
 
     const ShowRestaurant = ({name, cuisine, urlImage}) => {
         return (
@@ -124,23 +145,19 @@ const DashBoard = () => {
             <br />
             <div style={{textAlign:'center', marginTop:'10px', margin: 'auto'}}>
                 {selectedDay ? 
-                
-                <h1 data-aos='fade-in'>
-                    Select your <span style={{color:'#ff5649'}}>{selectedDay}</span> meal
-                </h1>
+                    <h1 data-aos='fade-in'>
+                        Select your <span style={{color:'#ff5649'}}>{selectedDay}</span> meal
+                    </h1>
                 : 
-                
-                <div style={{color:'white', marginTop:'auto', backgroundColor: '#e8ba5a', height: '70px'}}> 
-                   <h1> Select a which day you would like to add a meal!</h1>
-                </div>
-                
-                
+                    <div style={{color:'white', marginTop:'auto', backgroundColor: '#e8ba5a', height: '70px'}}> 
+                        <h1> Select a which day you would like to add a meal!</h1>
+                    </div>
                 }
             </div>
             <br />
 
             { !selectedRestaurant ?
-            <Grid container spacing={5} style={{ marginTop:'10px' }} data-aos='fade-in'>
+            <Grid container spacing={5} style={{ marginTop:'10px' }} data-aos='fade-up'>
 
                 <Grid item xs={6} sm={3}>
                     <ShowRestaurant
@@ -177,6 +194,7 @@ const DashBoard = () => {
                     restaurant={FakeRestaurant}
                     setSelectedRestaurant={setSelectedRestaurant}
                     selectedDay={selectedDay}
+                    setMealSelected={setMealSelected}
                 />
             }
 

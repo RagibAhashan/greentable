@@ -4,6 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Chip from '@material-ui/core/Chip';
 
+
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
@@ -16,16 +17,33 @@ const useStyles = makeStyles((theme) => ({
     
 }));
 
+function useForceUpdate(){
+  const [value, setValue] = useState(0); // integer state
+  return () => setValue(value => ++value); // update the state to force render
+}
+
 const MealWeekComponent = (props) => {
     const { selectedDay, setSelectedDay, weekOrder } = props;
+    const [orders, setOrders] = useState(weekOrder);
     const classes = useStyles();
+    const forceUpdate = useForceUpdate();
 
-    const getOrdersOfDay = (day) => {
+    useEffect(() => {
+      console.log('Meals!', weekOrder);
+      setOrders(weekOrder);
+      // setTimeout(() => {
+      //   forceUpdate();
+      // }, 1000)
+    });
+
+
+    const GetOrdersOfDay = ({day}) => {
+      console.log('day', orders, day)
       return (
         <div>
-          {weekOrder[day].first.restaurant ? 
+          {orders[day].first.restaurant ? 
             <Chip color="secondary" onDelete={() => console.log('deleted')}
-              label={`${weekOrder[day].first.food} from ${weekOrder[day].first.restaurant}`}
+              label={`${orders[day].first.food} from ${orders[day].first.restaurant}`}
               style={{ marginTop:'2%', padding:'0%' }} />
             :
             <Chip
@@ -39,9 +57,9 @@ const MealWeekComponent = (props) => {
 
           <br />
 
-          {weekOrder[day].second.restaurant ? 
+          {orders[day].second.restaurant ? 
             <Chip color="secondary" onDelete={() => console.log('deleted')}
-            label={`${weekOrder[day].second.food} from ${weekOrder[day].second.restaurant}`}
+            label={`${orders[day].second.food} from ${orders[day].second.restaurant}`}
             style={{ marginTop:'5%', padding:'5%' }} />
             :
             <Chip variant='outlined' onClick={() => setSelectedDay(day)} color="secondary" label='+Add meal' style={{  marginTop:'5%', padding:'5%'}} />
@@ -60,45 +78,45 @@ const MealWeekComponent = (props) => {
         <Grid item xs>
           <Paper className={classes.paper} >
               <p> Monday </p>
-              {getOrdersOfDay('Monday')}
+              <GetOrdersOfDay day={'Monday'} />
           </Paper>
         </Grid>
         <Grid item xs>
             <Paper className={classes.paper} >
               <p> Tuesday </p>
-              {getOrdersOfDay('Tuesday')}
+              <GetOrdersOfDay day={'Tuesday'} />
           </Paper>
         </Grid>
         <Grid item xs>
             <Paper className={classes.paper} >
               <p> Wednesday </p>
-              {getOrdersOfDay('Wednesday')}
+              <GetOrdersOfDay day={'Wednesday'} />
           </Paper>
         </Grid>
         <Grid item xs>
             <Paper className={classes.paper} >
               <p> Thursday </p>
-              {getOrdersOfDay('Thursday')}
+              <GetOrdersOfDay day={'Thursday'} />
             </Paper>
         </Grid>
         <Grid item xs>
             <Paper className={classes.paper} >
               <p> Friday </p>
-              {getOrdersOfDay('Friday')}
+              <GetOrdersOfDay day={'Friday'} />
           </Paper>
         </Grid>
 
         <Grid item xs>
             <Paper className={classes.paper} >
               <p> Saturday </p>
-              {getOrdersOfDay('Saturday')}
+              <GetOrdersOfDay day={'Saturday'} />
           </Paper>
         </Grid>
 
         <Grid item xs>
             <Paper className={classes.paper} >
               <p> Sunday </p>
-              {getOrdersOfDay('Sunday')}
+              <GetOrdersOfDay day={'Sunday'} />
           </Paper>
         </Grid>
       </Grid>

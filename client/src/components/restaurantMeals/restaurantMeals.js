@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 
 const RestaurantMeals = (props) => {
     const classes = useStyles();
-    const { restaurant, setSelectedRestaurant } = props;
+    const { restaurant, setSelectedRestaurant, setMealSelected } = props;
 
 
     const Meal = ({name, cuisine, urlImage}) => {
@@ -68,7 +68,12 @@ const RestaurantMeals = (props) => {
             </Button>
             <Grid container spacing={5} style={{ marginTop:'10px' }}>
                 {restaurant.Foods.Meals.map((meal) => {
-                    return <Grid item xs={6} sm={3} >
+                    return <Grid item xs={6} sm={3} onClick={() => {
+                        console.log(meal);
+                        const order = {restaurant: restaurant.RestaurantName, food: meal.name, type: 'dadas'}
+                        setMealSelected(order);
+                        setSelectedRestaurant('');
+                    }}>
                         <Meal
                             name={meal.name}
                             cuisine={meal.Description}
