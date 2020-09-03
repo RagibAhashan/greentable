@@ -43,7 +43,7 @@ const MealWeekComponent = (props) => {
               onDelete={() => {
                 console.log('Deleting')
                 const copy = weekOrder;
-                copy[selectedDay.toString()].first = {restaurant: '', food: '', type: ''};
+                copy[day.toString()].first = {restaurant: '', food: '', type: ''};
                 console.log(copy);
                 forceUpdate();
                 setWeekOrder(copy)
