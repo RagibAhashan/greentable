@@ -8,6 +8,8 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -34,6 +36,9 @@ const RestaurantMeals = (props) => {
     const classes = useStyles();
     const { restaurant, setSelectedRestaurant, setMealSelected } = props;
 
+    useEffect(()=>{
+        Aos.init({ duration: 1000});
+    }, []);
 
     const Meal = ({name, cuisine, urlImage}) => {
         return (
@@ -66,7 +71,7 @@ const RestaurantMeals = (props) => {
             >
                 Select a different restaurant
             </Button>
-            <Grid container spacing={5} style={{ marginTop:'10px' }}>
+            <Grid container spacing={5} style={{ marginTop:'10px' }} data-aos='fade-down'>
                 {restaurant.Foods.Meals.map((meal) => {
                     return <Grid item xs={6} sm={3} onClick={() => {
                         console.log(meal);

@@ -3,7 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Chip from '@material-ui/core/Chip';
-
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -24,45 +25,52 @@ function useForceUpdate(){
 
 const MealWeekComponent = (props) => {
     const { selectedDay, setSelectedDay, weekOrder } = props;
-    const [orders, setOrders] = useState(weekOrder);
     const classes = useStyles();
-    const forceUpdate = useForceUpdate();
 
-    useEffect(() => {
-      console.log('Meals!', weekOrder);
-      setOrders(weekOrder);
-      // setTimeout(() => {
-      //   forceUpdate();
-      // }, 1000)
-    });
+    useEffect(()=>{
+      Aos.init({ duration: 100});
+  }, []);
 
 
     const GetOrdersOfDay = ({day}) => {
-      console.log('day', orders, day)
+      console.log('day', weekOrder, day)
       return (
         <div>
-          {orders[day].first.restaurant ? 
+          {weekOrder[day].first.restaurant ? 
+          
             <Chip color="secondary" onDelete={() => console.log('deleted')}
-              label={`${orders[day].first.food} from ${orders[day].first.restaurant}`}
-              style={{ marginTop:'2%', padding:'0%' }} />
+              label={`${weekOrder[day].first.food} from ${weekOrder[day].first.restaurant}`}
+              style={{ marginTop:'2%', padding:'0%' }} 
+              data-aos={
+                `${selectedDay === day ? 'fade-in' : ''}`
+              }
+            />
             :
             <Chip
-
+              data-aos={
+                `${selectedDay === day ? 'flip-left' : ''}`
+              }
               onClick={() => setSelectedDay(day)}
-              color="secondary"
-              label='+Add meal'
+              color={`${selectedDay === day ? 'primary' : "secondary" }`}
+              label={`${selectedDay === day ? 'Chose your meal!' : '+Add meal'}`}
               style={{  marginTop:'2%', padding:'5%'}}
             />
           }
 
-          <br />
-
-          {orders[day].second.restaurant ? 
-            <Chip color="secondary" onDelete={() => console.log('deleted')}
-            label={`${orders[day].second.food} from ${orders[day].second.restaurant}`}
+          {weekOrder[day].second.restaurant ? 
+            <Chip
+            
+            color="secondary" onDelete={() => console.log('deleted')}
+            label={`${weekOrder[day].second.food} from ${weekOrder[day].second.restaurant}`}
             style={{ marginTop:'5%', padding:'5%' }} />
             :
-            <Chip variant='outlined' onClick={() => setSelectedDay(day)} color="secondary" label='+Add meal' style={{  marginTop:'5%', padding:'5%'}} />
+            <Chip
+              variant='outlined'
+              onClick={() => setSelectedDay(day)}
+              color="secondary"
+              label='+Add meal'
+              style={{  marginTop:'5%', padding:'5%'}}
+            />
           }
             
         </div>

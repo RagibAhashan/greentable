@@ -135,12 +135,7 @@ const DashBoard = () => {
             <NavBarLoggedIn />
 
             <div style={{width:'85%', margin:'auto'}}>
-            
-            <MealWeekComponent
-                setSelectedDay={setSelectedDay}
-                weekOrder={weekOrder}
-                selectedDay={selectedDay}
-            />
+
 
             <br />
             <div style={{textAlign:'center', marginTop:'10px', margin: 'auto'}}>
@@ -155,6 +150,14 @@ const DashBoard = () => {
                 }
             </div>
             <br />
+            
+            <MealWeekComponent
+                setSelectedDay={setSelectedDay}
+                weekOrder={weekOrder}
+                selectedDay={selectedDay}
+            />
+
+            
 
             { !selectedRestaurant ?
             <Grid container spacing={5} style={{ marginTop:'10px' }} data-aos='fade-up'>
