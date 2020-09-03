@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CheckoutOrder = (props) => {
-    const { isLoggedIn } = props;
+    const { isLoggedIn, setIsLoggedIn } = props;
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
 
@@ -45,7 +45,6 @@ const CheckoutOrder = (props) => {
     };
 
     useEffect(() => {
-        console.log('isLoggedIn', isLoggedIn)
 
         setLoggedIn(false);
         const getStartedOrders = JSON.parse(localStorage.getItem('getStartedOrders'));
@@ -187,6 +186,7 @@ const CheckoutOrder = (props) => {
                         getStarted={true}
                         setLoggedIn={setLoggedIn}
                         setUserInformation={setUserInformation}
+                        setIsLoggedIn={setIsLoggedIn}
                     />
                 </div>
                 : 

@@ -17,36 +17,34 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const MealWeekComponent = (props) => {
-    const { setSelecterDay } = props;
+    const { selectedDay, setSelectedDay, weekOrder } = props;
     const classes = useStyles();
-
-    const [weekOrder, setWeekOrder] = useState({
-        Monday:    {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}, location: '', time: ''},
-        Tuesday:   {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}, location: '', time: ''},
-        Wednesday: {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}, location: '', time: ''},
-        Thursday:  {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}, location: '', time: ''},
-        Friday:    {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}, location: '', time: ''},
-        Saturday:  {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}, location: '', time: ''},
-        Sunday:    {first: {restaurant: '', food: '', type: ''},  second: {restaurant: '', food: '', type: ''}, location: '', time: ''},
-    });
-
-    useEffect(() => {
-        console.log(weekOrder);
-    }, []);
 
     const getOrdersOfDay = (day) => {
       return (
         <div>
           {weekOrder[day].first.restaurant ? 
-            <Chip color="secondary" onDelete={() => console.log('deleted')} label='Shawarma' style={{ marginTop:'5%', padding:'5%' }} />
+            <Chip color="secondary" onDelete={() => console.log('deleted')}
+              label={`${weekOrder[day].first.food} from ${weekOrder[day].first.restaurant}`}
+              style={{ marginTop:'2%', padding:'0%' }} />
             :
-            <Chip variant='outlined' onClick={() => setSelecterDay(day)} color="secondary" label='Add meal' style={{  marginTop:'5%', padding:'5%'}} />
+            <Chip
+
+              onClick={() => setSelectedDay(day)}
+              color="secondary"
+              label='+Add meal'
+              style={{  marginTop:'2%', padding:'5%'}}
+            />
           }
 
+          <br />
+
           {weekOrder[day].second.restaurant ? 
-            <Chip color="secondary" onDelete={() => console.log('deleted')} label='Shawarma' style={{ marginTop:'5%', padding:'5%' }} />
+            <Chip color="secondary" onDelete={() => console.log('deleted')}
+            label={`${weekOrder[day].second.food} from ${weekOrder[day].second.restaurant}`}
+            style={{ marginTop:'5%', padding:'5%' }} />
             :
-            <Chip variant='outlined' onClick={() => setSelecterDay(day)} color="secondary" label='Add meal' style={{  marginTop:'5%', padding:'5%'}} />
+            <Chip variant='outlined' onClick={() => setSelectedDay(day)} color="secondary" label='+Add meal' style={{  marginTop:'5%', padding:'5%'}} />
           }
             
         </div>

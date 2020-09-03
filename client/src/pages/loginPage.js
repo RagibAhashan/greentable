@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 const LoginPage = (props) => {
-    const { setLoggedIn, getStarted, setUserInformation } = props;
+    const { setLoggedIn, getStarted, setUserInformation, setIsLoggedIn } = props;
 
     const history = useHistory();
     const classes = useStyles();
@@ -67,8 +67,10 @@ const LoginPage = (props) => {
             setLoggedIn(true);
             localStorage.setItem('EmailAddress', email);
             setUserInformation(response.data);
+            setIsLoggedIn(true);
           } else {
-            history.push('/')
+            setIsLoggedIn(true);
+            history.push('/');
           }
         } catch (error) {
           window.alert('Wrong Email or Password.')

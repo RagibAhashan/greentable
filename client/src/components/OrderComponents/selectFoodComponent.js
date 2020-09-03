@@ -141,7 +141,9 @@ const SelectFoodComponent = (props) => {
                         startIcon={<ArrowBackIcon />}
                         onClick={()=> history.push('/order-food')}
                         style={{marginBottom: '50px'}}
-                    > Select a different restaurant </Button>
+                    >
+                        Select a different restaurant
+                    </Button>
                     <h1> {selectedRestaurant.RestaurantName} </h1>
                     <RestaurantMenu 
                         info={selectedRestaurant}

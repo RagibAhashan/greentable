@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import HomePage from './components/home';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import LoginPage from './pages/loginPage';
 import UserSignUp from './pages/UserSignUp';
 import RegisterRestaurant from './pages/registerRestaurant';
@@ -30,7 +30,10 @@ const App = () => {
       <Router>
         <Switch>
           <Route path='/' exact component={HomePage}/>
-          <Route path='/login' component={LoginPage}/>
+          
+          
+          
+          <Route path='/login' component={() => <LoginPage setIsLoggedIn={setIsLoggedIn}/>}/>
           <Route path='/sign-up-client' component={UserSignUp}/>
 
           <Route path='/register-restaurant' component={RegisterRestaurant}/>
@@ -39,8 +42,16 @@ const App = () => {
 
           <Route path='/order-food' component={OrderFood}/>
           <Route path='/pricing' component={Pricing}/>
-          <Route path='/menu' component={DashBoard}/>
-          <Route path='/checkout' isLoggedIn={isLoggedIn} component={withProps(CheckoutOrder, { isLoggedIn: isLoggedIn })} />
+          
+          <Route path='/checkout' isLoggedIn={isLoggedIn} 
+            component={() => <CheckoutOrder isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}
+          />
+
+          {!isLoggedIn ?
+            <Route path='/menu' component={DashBoard}/>
+            :
+            <Redirect to='/'  />
+          }
 
         </Switch>
       </Router>
