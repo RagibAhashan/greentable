@@ -63,7 +63,7 @@ const RestaurantMeals = (props) => {
 
 
     return (
-        <div>
+        <div >
             <Button
                 startIcon={<ArrowBackIcon />}
                 onClick={()=> {setSelectedRestaurant('')}}
@@ -71,6 +71,8 @@ const RestaurantMeals = (props) => {
             >
                 Select a different restaurant
             </Button>
+
+            <h1 data-aos='fade-down'> {`Select a meal from ${restaurant.RestaurantName}`} </h1>
             <Grid container spacing={5} style={{ marginTop:'10px' }} data-aos='fade-down'>
                 {restaurant.Foods.Meals.map((meal) => {
                     return <Grid item xs={6} sm={3} onClick={() => {

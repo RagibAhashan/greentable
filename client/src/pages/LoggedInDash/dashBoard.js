@@ -90,15 +90,11 @@ const DashBoard = () => {
     useEffect(() => {
 
         if(selectedDay !== '') {
-
             const copy = weekOrder;
             copy[selectedDay.toString()].first = mealSelected;
-            setWeekOrder(copy)
-            
-            // console.log('NEW_COPY', copy)
+            setWeekOrder(copy);
         }
 
-        // console.log(selectedDay);
         forceUpdate();
     }, [mealSelected])
 
@@ -155,50 +151,57 @@ const DashBoard = () => {
                 setSelectedDay={setSelectedDay}
                 weekOrder={weekOrder}
                 selectedDay={selectedDay}
+                setWeekOrder={setWeekOrder}
             />
 
             
 
             { !selectedRestaurant ?
-            <Grid container spacing={5} style={{ marginTop:'10px' }} data-aos='fade-up'>
 
-                <Grid item xs={6} sm={3}>
-                    <ShowRestaurant
-                        name='Boustan'
-                        cuisine='Middle Eastern'
-                        urlImage='https://hellokelowna.com/wp53/wp-content/uploads/2018/12/s1.jpg'
-                    />
-                </Grid>
-                <Grid item xs={6} sm={3}>
-                    <ShowRestaurant
-                        name='Thai Express'
-                        cuisine='Asian'
-                        urlImage='https://www.englishclub.com/images/vocabulary/food/thai/thai-food.jpg'
-                    />
-                </Grid>
-                <Grid item xs={6} sm={3}>
-                    <ShowRestaurant
-                        name='KFC'
-                        cuisine='American'
-                        urlImage='https://cdn-b.william-reed.com/var/wrbm_gb_hospitality/storage/images/publications/hospitality/bighospitality.co.uk/article/2020/04/15/kfc-reopens-11-restaurants-for-delivery-only/3331532-1-eng-GB/KFC-reopens-11-restaurants-for-delivery-only_wrbm_large.png'
-                    />
-                </Grid>
-                <Grid item xs={6} sm={3}>
-                    <ShowRestaurant
-                        name='Poké Bol'
-                        cuisine='Asian'
-                        urlImage='https://media.restomontreal.ca/blog/603_2019-03-07-1267_news.jpg'
-                    />
-                </Grid>
-            </Grid>
+            <div>
+                <h1 style={{marginTop:'20px'}}> Select a restaurant </h1>
+                <Grid container spacing={5} style={{ marginTop:'10px' }} data-aos='fade-up'>
 
+                    <Grid item xs={6} sm={3}>
+                        <ShowRestaurant
+                            name='Boustan'
+                            cuisine='Middle Eastern'
+                            urlImage='https://hellokelowna.com/wp53/wp-content/uploads/2018/12/s1.jpg'
+                        />
+                    </Grid>
+                    <Grid item xs={6} sm={3}>
+                        <ShowRestaurant
+                            name='Thai Express'
+                            cuisine='Asian'
+                            urlImage='https://www.englishclub.com/images/vocabulary/food/thai/thai-food.jpg'
+                        />
+                    </Grid>
+                    <Grid item xs={6} sm={3}>
+                        <ShowRestaurant
+                            name='KFC'
+                            cuisine='American'
+                            urlImage='https://cdn-b.william-reed.com/var/wrbm_gb_hospitality/storage/images/publications/hospitality/bighospitality.co.uk/article/2020/04/15/kfc-reopens-11-restaurants-for-delivery-only/3331532-1-eng-GB/KFC-reopens-11-restaurants-for-delivery-only_wrbm_large.png'
+                        />
+                    </Grid>
+                    <Grid item xs={6} sm={3}>
+                        <ShowRestaurant
+                            name='Poké Bol'
+                            cuisine='Asian'
+                            urlImage='https://media.restomontreal.ca/blog/603_2019-03-07-1267_news.jpg'
+                        />
+                    </Grid>
+                </Grid>
+            </div>
             :
+            <div>
+            
                 <RestaurantMeals
                     restaurant={FakeRestaurant}
                     setSelectedRestaurant={setSelectedRestaurant}
                     selectedDay={selectedDay}
                     setMealSelected={setMealSelected}
                 />
+            </div>
             }
 
 

@@ -24,8 +24,9 @@ function useForceUpdate(){
 }
 
 const MealWeekComponent = (props) => {
-    const { selectedDay, setSelectedDay, weekOrder } = props;
+    const { selectedDay, setSelectedDay, weekOrder, setWeekOrder } = props;
     const classes = useStyles();
+    const forceUpdate = useForceUpdate();
 
     useEffect(()=>{
       Aos.init({ duration: 100});
@@ -33,12 +34,20 @@ const MealWeekComponent = (props) => {
 
 
     const GetOrdersOfDay = ({day}) => {
-      console.log('day', weekOrder, day)
       return (
         <div>
           {weekOrder[day].first.restaurant ? 
           
-            <Chip color="secondary" onDelete={() => console.log('deleted')}
+            <Chip
+              color="secondary"
+              onDelete={() => {
+                console.log('Deleting')
+                const copy = weekOrder;
+                copy[selectedDay.toString()].first = {restaurant: '', food: '', type: ''};
+                console.log(copy);
+                forceUpdate();
+                setWeekOrder(copy)
+              }}
               label={`${weekOrder[day].first.food} from ${weekOrder[day].first.restaurant}`}
               style={{ marginTop:'2%', padding:'0%' }} 
               data-aos={
@@ -48,7 +57,7 @@ const MealWeekComponent = (props) => {
             :
             <Chip
               data-aos={
-                `${selectedDay === day ? 'flip-left' : ''}`
+                `${selectedDay === day ? 'fade-in' : ''}`
               }
               onClick={() => setSelectedDay(day)}
               color={`${selectedDay === day ? 'primary' : "secondary" }`}
