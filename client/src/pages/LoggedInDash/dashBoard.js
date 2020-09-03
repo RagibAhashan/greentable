@@ -52,6 +52,7 @@ const DashBoard = () => {
     const [selectedDay, setSelectedDay] = useState('');
     const [selectedRestaurant, setSelectedRestaurant] = useState('');
     const [mealSelected, setMealSelected] = useState('');
+    const [firstLoad, setFirstLoad] = useState(true);
 
     const FakeRestaurant = {
         'id': 'f4494b15-b037-452c-933c-f7e959dcda11',
@@ -126,39 +127,14 @@ const DashBoard = () => {
         )
     }
 
-    return (
-        <div>
-            <NavBarLoggedIn />
 
-            <div style={{width:'85%', margin:'auto'}}>
-
-
-            <br />
-            <div style={{textAlign:'center', marginTop:'10px', margin: 'auto'}}>
-                {selectedDay ? 
-                    <h1 data-aos='fade-in'>
-                        Select your <span style={{color:'#ff5649'}}>{selectedDay}</span> meal
-                    </h1>
-                : 
-                    <div style={{color:'white', marginTop:'auto', backgroundColor: '#e8ba5a', height: '70px'}}> 
-                        <h1> Select a which day you would like to add a meal!</h1>
-                    </div>
-                }
-            </div>
-            <br />
-            
-            <MealWeekComponent
-                setSelectedDay={setSelectedDay}
-                weekOrder={weekOrder}
-                selectedDay={selectedDay}
-                setWeekOrder={setWeekOrder}
-            />
-
-            
-
-            { !selectedRestaurant ?
-
-            <div>
+    const OrderingInterface = ({firstLoad, setFirstLoad}) => {
+        if (!selectedRestaurant) {
+            if(firstLoad) {
+                setFirstLoad(false);
+            }
+            return (
+                <div>
                 <h1 style={{marginTop:'20px'}}> Select a restaurant </h1>
                 <Grid container spacing={5} style={{ marginTop:'10px' }} data-aos='fade-left'>
 
@@ -192,17 +168,55 @@ const DashBoard = () => {
                     </Grid>
                 </Grid>
             </div>
-            :
-            <div >
+            )
+        } else {
+            return (
+                <div >
             
                 <RestaurantMeals
-                    
                     restaurant={FakeRestaurant}
                     setSelectedRestaurant={setSelectedRestaurant}
                     selectedDay={selectedDay}
                     setMealSelected={setMealSelected}
                 />
             </div>
+            )
+        }
+    }
+
+    return (
+        <div>
+            <NavBarLoggedIn />
+
+            <div style={{width:'85%', margin:'auto'}}>
+
+
+            <br />
+            <div style={{textAlign:'center', marginTop:'10px', margin: 'auto'}}>
+                {selectedDay ? 
+                    <h1 data-aos='fade-in'>
+                        Select your <span style={{color:'#ff5649'}}>{selectedDay}</span> meal
+                    </h1>
+                : 
+                    <div style={{color:'white', marginTop:'auto', backgroundColor: '#e8ba5a', height: '70px'}}> 
+                        <h1> Select a which day you would like to add a meal!</h1>
+                    </div>
+                }
+            </div>
+            <br />
+            
+                <MealWeekComponent
+                    setSelectedDay={setSelectedDay}
+                    weekOrder={weekOrder}
+                    selectedDay={selectedDay}
+                    setWeekOrder={setWeekOrder}
+                    setFirstLoad={setFirstLoad}
+                />
+
+            
+
+            {firstLoad ? <div /> :
+                <OrderingInterface />
             }
 
 

@@ -24,7 +24,7 @@ function useForceUpdate(){
 }
 
 const MealWeekComponent = (props) => {
-    const { selectedDay, setSelectedDay, weekOrder, setWeekOrder } = props;
+    const { selectedDay, setSelectedDay, weekOrder, setWeekOrder, setFirstLoad } = props;
     const classes = useStyles();
     const forceUpdate = useForceUpdate();
 
@@ -49,7 +49,7 @@ const MealWeekComponent = (props) => {
                 setWeekOrder(copy)
               }}
               label={`${weekOrder[day].first.food} from ${weekOrder[day].first.restaurant}`}
-              style={{ marginTop:'2%', padding:'0%' }} 
+              style={{ marginTop:'2px', padding:'0%' }} 
               data-aos={
                 `${selectedDay === day ? 'fade-in' : ''}`
               }
@@ -62,10 +62,10 @@ const MealWeekComponent = (props) => {
               data-aos={
                 `${selectedDay === day ? 'fade-in' : ''}`
               }
-              onClick={() => setSelectedDay(day)}
+              onClick={() => {setSelectedDay(day); setFirstLoad(false)}}
               color={`${selectedDay === day ? 'primary' : "secondary" }`}
               label={`${selectedDay === day ? 'Chose your meal!' : '+Add meal'}`}
-              style={{  marginTop:'2%', padding:'5%'}}
+              style={{  marginTop:'2px', padding:'5px'}}
             />
           }
 
@@ -75,14 +75,14 @@ const MealWeekComponent = (props) => {
             
             color="secondary" onDelete={() => console.log('deleted')}
             label={`${weekOrder[day].second.food} from ${weekOrder[day].second.restaurant}`}
-            style={{ marginTop:'5%', padding:'5%' }} />
+            style={{ marginTop:'2px', padding:'5px' }} />
             :
             <Chip
               variant='outlined'
               onClick={() => setSelectedDay(day)}
               color="secondary"
               label='+Add meal'
-              style={{  marginTop:'5%', padding:'5%'}}
+              style={{  marginTop:'5px', padding:'5px'}}
             />
           }
             
