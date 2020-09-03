@@ -160,7 +160,7 @@ const DashBoard = () => {
 
             <div>
                 <h1 style={{marginTop:'20px'}}> Select a restaurant </h1>
-                <Grid container spacing={5} style={{ marginTop:'10px' }} data-aos='fade-up'>
+                <Grid container spacing={5} style={{ marginTop:'10px' }} data-aos='fade-left'>
 
                     <Grid item xs={6} sm={3}>
                         <ShowRestaurant
@@ -193,9 +193,10 @@ const DashBoard = () => {
                 </Grid>
             </div>
             :
-            <div>
+            <div >
             
                 <RestaurantMeals
+                    
                     restaurant={FakeRestaurant}
                     setSelectedRestaurant={setSelectedRestaurant}
                     selectedDay={selectedDay}

@@ -56,6 +56,9 @@ const MealWeekComponent = (props) => {
             />
             :
             <Chip
+            variant={
+              `${selectedDay === day ? '' : ''}`
+            }
               data-aos={
                 `${selectedDay === day ? 'fade-in' : ''}`
               }
@@ -66,6 +69,7 @@ const MealWeekComponent = (props) => {
             />
           }
 
+          <br />
           {weekOrder[day].second.restaurant ? 
             <Chip
             
