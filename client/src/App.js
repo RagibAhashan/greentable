@@ -21,10 +21,14 @@ const withProps = (Component, props) => {
 const App = () => {
   
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [meals, setMeals] = useState(undefined);
+  const [schedule, setSchedute] = useState(undefined);
 
   useEffect(() => {
-    console.log('isLoggedIn', isLoggedIn)
-  }, [isLoggedIn])
+    console.log('isLoggedIn', isLoggedIn);
+    console.log('Meals', meals);
+    console.log('schedule', schedule)
+  }, [isLoggedIn, meals, schedule])
 
   return (
       <Router>
@@ -40,12 +44,19 @@ const App = () => {
           <Route path='/restaurant/get-started/:loginEmail' name='loginEmail' component={RestaurantGetStarted}/>
           <Route path='/user/get-started/:loginEmail' name='loginEmail' component={UserGetStarted}/>
 
-          <Route path='/order-food' component={OrderFood}/>
+          <Route path='/order-food' component={
+            () => <OrderFood schedule={schedule} setSchedute={setSchedute} meals={meals} setMeals={setMeals} />
+            }/>
           <Route path='/pricing' component={Pricing}/>
           
+          {meals ? 
           <Route path='/checkout' isLoggedIn={isLoggedIn} 
-            component={() => <CheckoutOrder isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}
-          />
+          component={() => <CheckoutOrder 
+            isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
+            schedule={schedule} setSchedute={setSchedute} meals={meals} setMeals={setMeals}
+            />}
+            />
+          : <Redirect to='/'  />}
 
           {!isLoggedIn ?
             <Route path='/menu' component={DashBoard}/>

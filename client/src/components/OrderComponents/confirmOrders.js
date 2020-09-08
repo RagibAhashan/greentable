@@ -56,7 +56,7 @@ const timeSelections = [
 ]
 
 const ConfirmOrders = (props) => {
-    const { weekOrder, getDay, history, setConfirmWeekOrders } = props;
+    const { weekOrder, getDay, history, setConfirmWeekOrders, schedule, setSchedute, meals, setMeals } = props;
     const classes = useStyles();
     const [timelocation, setTimelocation] = useState({
         Monday:     {location: '', time: ''},
@@ -176,6 +176,8 @@ const ConfirmOrders = (props) => {
                         onClick={() => {
                             localStorage.setItem('getStartedOrders', JSON.stringify(weekOrder))
                             localStorage.setItem('getStartedOrdersTimes', JSON.stringify(timelocation))
+                            setSchedute(timelocation);
+                            setMeals(weekOrder);
                             history.push('/pricing')
                         }}
                     >

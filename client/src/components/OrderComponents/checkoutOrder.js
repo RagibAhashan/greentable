@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CheckoutOrder = (props) => {
-    const { isLoggedIn, setIsLoggedIn } = props;
+    const { isLoggedIn, setIsLoggedIn, schedule, setSchedute, meals, setMeals } = props;
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
 
@@ -47,8 +47,8 @@ const CheckoutOrder = (props) => {
     useEffect(() => {
 
         setLoggedIn(false);
-        const getStartedOrders = JSON.parse(localStorage.getItem('getStartedOrders'));
-        const getStartedOrdersTimes = JSON.parse(localStorage.getItem('getStartedOrdersTimes'));
+        const getStartedOrders = meals; // JSON.parse(localStorage.getItem('getStartedOrders'));
+        const getStartedOrdersTimes = schedule; // JSON.parse(localStorage.getItem('getStartedOrdersTimes'));
         console.log(getStartedOrders, getStartedOrdersTimes);
 
         if(getStartedOrders && getStartedOrdersTimes) {

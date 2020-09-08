@@ -14,12 +14,15 @@ import './orderFood.css';
 
 
 
-const OrderFood = () => {
+const OrderFood = (props) => {
+    const { schedule, setSchedute, meals, setMeals } = props;
     const history = useHistory();
     const [day, setDay] = useState(0);
     const [ordersComplete, setOrderComplete] = useState(false);
     const [showExplaination, setShowExplaination] = useState(false);
     const [confirmWeekOrders, setConfirmWeekOrders] = useState(false);
+
+    
 
 
     const [weekOrder, setWeekOrder] = useState({
@@ -182,6 +185,7 @@ const OrderFood = () => {
                 style={{width:'90%'}}
                 history={history}
                 setConfirmWeekOrders={setConfirmWeekOrders}
+                schedule={schedule} setSchedute={setSchedute} meals={meals} setMeals={setMeals}
               />
             
           }
